@@ -29,3 +29,14 @@ CREATE TABLE `role` (
   `type` varchar(10) NOT NULL DEFAULT '' COMMENT '角色类型',
   PRIMARY KEY (`id`)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT '角色表';
+
+-- ----------------------------
+--  Table structure for `user_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
+  `role_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '角色id',
+  PRIMARY KEY (`id`)
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT '用户角色对应表';
