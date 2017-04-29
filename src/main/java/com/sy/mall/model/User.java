@@ -3,6 +3,7 @@ package com.sy.mall.model;
 import com.sy.mall.common.enums.GenderEnum;
 import com.sy.mall.common.enums.UserStatusEnum;
 
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 
 public class User {
+    @Id
     private Long userId;
     private String username;
     private String password;

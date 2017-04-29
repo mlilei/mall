@@ -2,23 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sy.mall.dao.UserDao">
     <sql id="selectFields">
-        id,
+        user_id as userId,
         username,
         password,
         nickname,
         birthday,
         phone,
-        mail,
+        email,
         introduction,
         gender,
+        status,
         create_time as createTime,
         update_time as updateTime
     </sql>
-
     <select id="selectByUsername" parameterType="String" resultType="User">
         SELECT
         <include refid="selectFields"/>
-        FROM user WHERE username = #{username}
+        FROM user where username = #{username}
     </select>
-
 </mapper>
