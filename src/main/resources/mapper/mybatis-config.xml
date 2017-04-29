@@ -16,11 +16,14 @@
          as some drivers deny compatibility but still work -->
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
-    <!--<typeHandlers>-->
-        <!--<typeHandler handler="com.qunar.base.meerkat.orm.mybatis.type.CodeEnumTypeHandler"-->
-                     <!--javaType="com.sy.mall.common.enums.GenderEnum"/>-->
-    <!--</typeHandlers>-->
 
-    <!-- Continue going here -->
+    <typeHandlers>
+        <typeHandler handler="com.qunar.base.meerkat.orm.mybatis.type.CodeEnumTypeHandler"
+                     javaType="com.sy.mall.common.enums.GenderEnum"/>
+        <typeHandler handler="com.qunar.base.meerkat.orm.mybatis.type.CodeEnumTypeHandler"
+                     javaType="com.sy.mall.common.enums.UserStatusEnum"/>
+    </typeHandlers>
+
+    <!--Continue going here -->
 
 </configuration>
