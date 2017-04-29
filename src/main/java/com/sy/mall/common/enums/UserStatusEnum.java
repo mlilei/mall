@@ -6,13 +6,14 @@ import java.util.Map;
 
 /**
  * Created by 李磊
- * on 17-3-22.
+ * on 17-4-29.
  */
-public enum GenderEnum {
-    MALE(1, "男"),
-    FEMALE(2, "女");
+public enum UserStatusEnum {
+    NORMAL(0, "正常"),
+    NOT_ACTIVE(1, "未激活"),
+    DISABLE(2, "禁用");
 
-    GenderEnum(int code, String message) {
+    UserStatusEnum(int code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -20,11 +21,11 @@ public enum GenderEnum {
     private int code;
     private String message;
 
-    private static final Map<Integer, GenderEnum> map = Maps.newHashMap();
+    private static final Map<Integer, UserStatusEnum> map = Maps.newHashMap();
 
     static {
-        for (GenderEnum genderEnum : values()) {
-            map.put(genderEnum.getCode(), genderEnum);
+        for (UserStatusEnum userStatusEnum : values()) {
+            map.put(userStatusEnum.getCode(), userStatusEnum);
         }
     }
 
@@ -32,7 +33,7 @@ public enum GenderEnum {
         return code;
     }
 
-    public static GenderEnum codeOf(int code) {
+    public static UserStatusEnum codeOf(int code) {
         return map.get(code);
     }
 

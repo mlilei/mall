@@ -7,7 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by lilei on 2017/3/21.
+ * 将前段传来的日期转换为Date对象
+ * Created by 李磊 on 2017/3/21.
  */
 public class StringToDateConverter implements Converter<String, Date> {
     @Override
@@ -22,13 +23,13 @@ public class StringToDateConverter implements Converter<String, Date> {
             date = format.parse(source.trim());
         } catch (Exception e) {
             try {
-                format = new SimpleDateFormat("yyyyMMddHHmmss");
+                format = new SimpleDateFormat("yyyy-MM-dd");
                 date = format.parse(source.trim());
             } catch (Exception e1) {
                 try {
-                    format = new SimpleDateFormat("yyyy-MM-dd");
+                    format = new SimpleDateFormat("MM/dd/yyyy");
                     date = format.parse(source.trim());
-                } catch (Exception e2) {
+                } catch (Exception ignored) {
                 }
             }
         }
