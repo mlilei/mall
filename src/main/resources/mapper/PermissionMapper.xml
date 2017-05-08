@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sy.mall.mapper.PermissionMapper">
+
+    <select id="listByRoleList" resultType="Permission">
+        SELECT p.permission_id as permissionId, url, name, p.create_time as createTime, p.update_time as updateTime
+        FROM role r
+        INNER JOIN role_permission rp ON r.role_id = rp.role_id
+        INNER JOIN permission p ON rp.permission_id = p.permission_id
+        WHERE r.role_id
+        <!-- 避免了list为null或为空时导致sql异常的情况 -->
+        IN
+        <if test="list != null">
+            <foreach collection="list" item="item" separator="," open=" ( " close=")">
+                #{item.roleId}
+            </foreach>
+        </if>
+        <if test="list == null || list.size == 0">
+            (0)
+        </if>
+
+    </select>
+
+</mapper>

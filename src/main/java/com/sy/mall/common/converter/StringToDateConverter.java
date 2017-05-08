@@ -1,4 +1,4 @@
-package com.sy.mall.common;
+package com.sy.mall.common.converter;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.convert.converter.Converter;
@@ -8,7 +8,8 @@ import java.util.Date;
 
 /**
  * 将前段传来的日期转换为Date对象
- * Created by 李磊 on 2017/3/21.
+ * Created by 李磊
+ * on 2017/3/21.
  */
 public class StringToDateConverter implements Converter<String, Date> {
     @Override

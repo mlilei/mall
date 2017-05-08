@@ -1,4 +1,4 @@
-package com.sy.mall.common.handler;
+package com.sy.mall.common.typeHandler;
 
 
 import org.apache.ibatis.builder.xml.XMLConfigBuilder;

@@ -8,14 +8,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Created by lilei on 2017/3/27.
+ * Created by 李磊
+ * on 2017/3/27.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring/spring-core.xml")
+@ContextConfiguration("classpath:spring/spring-*.xml")
 public class BaseTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseTest.class);
+
     @Test
-    public void test(){
+    public void test() {
         LOGGER.info("SUCCESS");
     }
 }

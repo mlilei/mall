@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sy.mall.mapper.RoleMapper">
+
+    <sql id="selectFields">
+        role_id as roleId, role_name as roleName, remark, create_time as createTime, update_time as updateTime
+    </sql>
+
+    <select id="listByUserId" parameterType="Long" resultType="Role">
+        SELECT r.role_id as roleId, role_name as roleName, remark, r.create_time as createTime, r.update_time as
+        updateTime
+        FROM user u
+        INNER JOIN user_role ur ON u.user_id = ur.user_id
+        INNER JOIN role r ON ur.role_id = r.role_id
+        WHERE u.user_id = #{userId}
+    </select>
+
+</mapper>

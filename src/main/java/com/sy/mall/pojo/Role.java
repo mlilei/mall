@@ -1,5 +1,6 @@
-package com.sy.mall.model;
+package com.sy.mall.pojo;
 
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -7,6 +8,7 @@ import java.util.Date;
  * on 17-4-29.
  */
 public class Role {
+    @Id
     private Long roleId;
     private String roleName;
     private String remark;

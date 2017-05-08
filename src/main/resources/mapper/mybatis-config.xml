@@ -18,9 +18,9 @@
     </settings>
 
     <typeHandlers>
-        <typeHandler handler="com.sy.mall.common.handler.CodeEnumTypeHandler"
+        <typeHandler handler="com.sy.mall.common.typeHandler.CodeEnumTypeHandler"
                      javaType="com.sy.mall.common.enums.GenderEnum"/>
-        <typeHandler handler="com.sy.mall.common.handler.CodeEnumTypeHandler"
+        <typeHandler handler="com.sy.mall.common.typeHandler.CodeEnumTypeHandler"
                      javaType="com.sy.mall.common.enums.UserStatusEnum"/>
     </typeHandlers>
 

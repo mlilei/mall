@@ -1,4 +1,4 @@
-package com.sy.mall.model;
+package com.sy.mall.pojo;
 
 /**
  * Created by 李磊

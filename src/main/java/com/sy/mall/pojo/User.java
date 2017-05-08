@@ -1,4 +1,4 @@
-package com.sy.mall.model;
+package com.sy.mall.pojo;
 
 import com.sy.mall.common.enums.GenderEnum;
 import com.sy.mall.common.enums.UserStatusEnum;

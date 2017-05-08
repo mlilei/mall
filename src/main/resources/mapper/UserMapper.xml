@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sy.mall.dao.UserDao">
+<mapper namespace="com.sy.mall.mapper.UserMapper">
+
     <sql id="selectFields">
-        user_id as userId,
-        username,
-        password,
-        nickname,
-        birthday,
-        phone,
-        email,
-        introduction,
-        gender,
-        status,
-        create_time as createTime,
-        update_time as updateTime
+        user_id as userId, username, password, nickname, birthday, phone, email, introduction, gender, status,
+        create_time as createTime, update_time as updateTime
     </sql>
-    <select id="selectByUsername" parameterType="String" resultType="User">
-        SELECT
-        <include refid="selectFields"/>
-        FROM user where username = #{username}
-    </select>
+    <insert id="batchInsert" parameterType="User">
+        INSERT INTO
+        user (username, password, nickname, birthday, phone, email, introduction, gender, status, create_time)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.username}, #{item.password}, #{item.nickname}, #{item.birthday}, #{item.phone}, #{item.email},
+            #{item.introduction}, #{item.gender}, #{item.status}, #{item.createTime})
+        </foreach>
+    </insert>
+
 </mapper>
