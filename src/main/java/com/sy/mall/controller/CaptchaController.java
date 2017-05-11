@@ -2,7 +2,9 @@ package com.sy.mall.controller;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-import org.apache.shiro.SecurityUtils;
+import com.sy.mall.common.util.ShiroUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,7 +13,6 @@ import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -21,15 +22,12 @@ import java.io.IOException;
  */
 @Controller
 public class CaptchaController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CaptchaController.class);
     @Resource
     private Producer captchaProducer;
 
     @RequestMapping("captcha.jpg")
     public void getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession();
-        String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        System.out.println("******************验证码是: " + code + "******************");
-
         response.setDateHeader("Expires", 0);
 
         // Set standard HTTP/1.1 no-cache headers.
@@ -49,7 +47,8 @@ public class CaptchaController {
 
         // store the text in the session
         //session.setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
-        SecurityUtils.getSubject().getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
+        System.out.println(ShiroUtils.getSession().getId());
+        ShiroUtils.setSessionAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
 
         // create the image with the text
         BufferedImage bi = captchaProducer.createImage(capText);
@@ -62,5 +61,6 @@ public class CaptchaController {
         } finally {
             out.close();
         }
+        LOGGER.info("验证码是:{}", capText);
     }
 }

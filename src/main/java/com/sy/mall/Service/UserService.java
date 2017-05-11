@@ -5,6 +5,7 @@ import com.sy.mall.pojo.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by 李磊
@@ -16,7 +17,7 @@ public class UserService extends BaseService<User> {
     @Resource
     private UserMapper userMapper;
 
-    @Resource(name = "userMapper")
+    @Resource
     public void setMapper(UserMapper userMapper) {
         super.setMapper(userMapper);
     }
@@ -24,9 +25,11 @@ public class UserService extends BaseService<User> {
     /**
      * 通过用户名,手机号,邮箱查询用户
      */
-    public User getUser(String principal) {
-
-        return null;
+    public User getUserByUsername(String username) {
+        User user = new User();
+        user.setUsername(username);
+        List<User> userList = userMapper.select(user);
+        return userList == null ? null : userList.get(0);
     }
 
 }

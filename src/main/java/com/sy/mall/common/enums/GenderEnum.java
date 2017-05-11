@@ -9,6 +9,7 @@ import java.util.Map;
  * on 17-3-22.
  */
 public enum GenderEnum {
+    UNKNOW(0, "未知"),
     MALE(1, "男"),
     FEMALE(2, "女");
 

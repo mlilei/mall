@@ -12,7 +12,9 @@ public enum ResultEnum {
     SUCCESS("000", "成功"),
 
     ERROR("100", "失败"),
-    LOGIN_ERROR("110", "登录失败");
+    LOGIN_ERROR("110", "登录失败"),
+    VERIFICATION_CODE_ERROR("111", "验证码错误"),
+    REGISTER_ERROR("120", "注册失败");
 
     private String code;
     private String message;

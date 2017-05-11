@@ -15,6 +15,11 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!--// 简单配置，未配置的均使用默认值，就是全面放开-->
+    <mvc:cors>
+        <mvc:mapping path="/**" />
+    </mvc:cors>
+
     <!-- AOP式方法级权限检查  -->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
           depends-on="lifecycleBeanPostProcessor">
@@ -94,21 +99,23 @@
         <property name="defaultErrorView" value="forward:/WEB-INF/view/404.html"/>
     </bean>
 
-    <!-- 页面生成随机验证码 -->
+    <!-- 验证码配置（也可以做web.xml的Servlet中配置），对应CaptchaRandomCodeController管理生成 -->
     <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
         <property name="config">
             <bean class="com.google.code.kaptcha.util.Config">
                 <constructor-arg>
                     <props>
-                        <prop key="kaptcha.border">no</prop>
+                        <prop key="kaptcha.border">yes</prop>
                         <prop key="kaptcha.border.color">105,179,90</prop>
-                        <prop key="kaptcha.textproducer.font.color">red</prop>
-                        <prop key="kaptcha.image.width">250</prop>
-                        <prop key="kaptcha.textproducer.font.size">80</prop>
-                        <prop key="kaptcha.image.height">90</prop>
+                        <prop key="kaptcha.image.width">160</prop>
+                        <prop key="kaptcha.image.height">50</prop>
                         <prop key="kaptcha.session.key">code</prop>
-                        <prop key="kaptcha.textproducer.char.length">4</prop>
-                        <prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>
+                        <prop key="kaptcha.textproducer.font.color">red</prop>
+                        <prop key="kaptcha.textproducer.font.size">35</prop>
+                        <prop key="kaptcha.textproducer.char.space">3</prop>
+                        <prop key="kaptcha.textproducer.char.length">5</prop>
+                        <!-- 配置中文 <prop key="kaptcha.textproducer.impl">com.google.code.kaptcha.text.impl.ChineseTextProducer</prop> -->
+                        <prop key="kaptcha.textproducer.font.names">彩云,宋体,楷体,微软雅黑</prop>
                     </props>
                 </constructor-arg>
             </bean>
