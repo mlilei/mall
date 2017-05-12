@@ -6,7 +6,9 @@ import com.sy.mall.ResponseResult;
 import com.sy.mall.Service.UserService;
 import com.sy.mall.common.enums.GenderEnum;
 import com.sy.mall.common.util.BCrypt;
+import com.sy.mall.common.util.CheckParamUtil;
 import com.sy.mall.common.util.ShiroUtils;
+import com.sy.mall.mapper.UserMapper;
 import com.sy.mall.pojo.User;
 import com.sy.mall.pojo.dto.LoginInfoDTO;
 import com.sy.mall.pojo.dto.RegisterInfoDTO;
@@ -33,6 +35,8 @@ public class UserBiz {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserBiz.class);
     @Resource
     private UserService userService;
+    @Resource
+    private UserMapper userMapper;
 
     public ResponseResult register(RegisterInfoDTO registerInfo) {
         checkRegisterParams(registerInfo);
@@ -56,7 +60,7 @@ public class UserBiz {
         String salt = BCrypt.gensalt();
         user.setPassword(BCrypt.hashpw(user.getPassword(), salt));
 
-        userService.save(user);
+        userMapper.insertSelective(user);
         return ResponseResult.createSuccessResult();
     }
 
@@ -74,6 +78,33 @@ public class UserBiz {
             LOGGER.warn("登录失败:{}", loginInfo, e);
             throw new MallException(MallException.LOGIN_ERROR.getCode(), e.getMessage());
         }
+        return ResponseResult.createSuccessResult();
+    }
+
+    public ResponseResult getUser() {
+        User user = (User) ShiroUtils.getSubject().getPrincipal();
+        user = userService.show(user);
+        ResponseResult successResult = ResponseResult.createSuccessResult();
+        successResult.setData(user);
+        return successResult;
+    }
+
+    public ResponseResult putUser(User user) {
+        CheckParamUtil.checkPutUserParams(user);
+        User u = (User) ShiroUtils.getSubject().getPrincipal();
+
+        //username字段不允许修改
+        if (!u.getUsername().equals(user.getUsername())) {
+            throw MallException.PARAMS_INVALID;
+        }
+
+        user.setUserId(u.getUserId());
+        user.setPassword(null);
+        user.setStatus(null);
+        user.setCreateTime(null);
+        user.setUpdateTime(null);
+
+        userMapper.updateByPrimaryKeySelective(user);
         return ResponseResult.createSuccessResult();
     }
 }

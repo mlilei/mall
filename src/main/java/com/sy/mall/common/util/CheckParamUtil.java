@@ -2,6 +2,7 @@ package com.sy.mall.common.util;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import com.sy.mall.pojo.User;
 import com.sy.mall.pojo.dto.LoginInfoDTO;
 import com.sy.mall.pojo.dto.RegisterInfoDTO;
 
@@ -13,6 +14,7 @@ import java.util.regex.Pattern;
  */
 public class CheckParamUtil {
     private static final Pattern EMAIL_PATTERN = Pattern.compile("[\\w-\\.]+@([\\w-]+\\.)+[a-z]{2,3}");
+    private static final Pattern PHONE_PATTERN = Pattern.compile("^1([34578])[0-9]\\d{8}$");
 
 
     public static void checkLoginParams(LoginInfoDTO loginInfoDTO) {
@@ -36,4 +38,11 @@ public class CheckParamUtil {
         Preconditions.checkArgument(EMAIL_PATTERN.matcher(registerInfo.getEmail()).matches(), "邮箱格式错误");
     }
 
+    public static void checkPutUserParams(User user) {
+        Preconditions.checkNotNull(user, "修改信息不能为空");
+        Preconditions.checkArgument(Strings.isNullOrEmpty(user.getNickname()) || user.getNickname().length() < 16, "昵称长度应小于16位");
+        Preconditions.checkArgument(Strings.isNullOrEmpty(user.getIntroduction()) || user.getIntroduction().length() < 16, "简介长度应小于255位");
+        Preconditions.checkArgument(Strings.isNullOrEmpty(user.getPhone()) || PHONE_PATTERN.matcher(user.getPhone()).matches(), "手机号格式错误");
+        Preconditions.checkArgument(Strings.isNullOrEmpty(user.getEmail()) || EMAIL_PATTERN.matcher(user.getEmail()).matches(), "邮箱格式错误");
+    }
 }

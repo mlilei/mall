@@ -24,6 +24,10 @@ public class BaseService<T> {
         return mapper.deleteByPrimaryKey(entity);
     }
 
+    public int update(T entity) {
+        return mapper.updateByPrimaryKey(entity);
+    }
+
     /**
      * 单表分页查询
      */

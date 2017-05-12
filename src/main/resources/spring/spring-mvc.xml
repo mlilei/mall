@@ -34,6 +34,7 @@
         <property name="converters">
             <array>
                 <bean class="com.sy.mall.common.converter.StringToDateConverter"/>
+                <bean class="com.sy.mall.common.converter.StringToGenderEnumConverter"/>
             </array>
         </property>
     </bean>
