@@ -1,11 +1,15 @@
 package com.sy.mall.pojo;
 
+import javax.persistence.Id;
+
 /**
  * Created by 李磊
  * on 17-4-29.
  */
 public class RolePermission {
+    @Id
     private Long roleId;
+    @Id
     private Long permissionId;
 
     public Long getRoleId() {

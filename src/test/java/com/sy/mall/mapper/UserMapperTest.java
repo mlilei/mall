@@ -34,4 +34,7 @@ public class UserMapperTest extends BaseTest {
         user.setUserId(1L);
         System.out.println(userMapper.selectByPrimaryKey(user));
     }
+    @Test
+    public void save(){
+    }
 }

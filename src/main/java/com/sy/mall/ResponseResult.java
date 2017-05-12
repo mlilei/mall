@@ -1,7 +1,5 @@
 package com.sy.mall;
 
-import com.sy.mall.common.enums.ResultEnum;
-
 import java.io.Serializable;
 
 /**
@@ -16,24 +14,17 @@ public class ResponseResult<T> implements Serializable {
     public ResponseResult() {
     }
 
-    public ResponseResult(ResultEnum resultEnum) {
-        this.code = resultEnum.getCode();
-        this.message = resultEnum.getMessage();
-    }
-
-    public ResponseResult(ResultEnum resultEnum, String message) {
-        this.code = resultEnum.getCode();
+    public ResponseResult(String code, String message) {
+        this.code = code;
         this.message = message;
     }
 
-    public static ResponseResult createSuccessResult() {
-        return createSuccessResult(null);
+    public static ResponseResult createResult(MallException e) {
+        return new ResponseResult(e.getCode(), e.getMessage());
     }
 
-    public static <T> ResponseResult createSuccessResult(T data) {
-        ResponseResult responseResult = new ResponseResult(ResultEnum.SUCCESS);
-        responseResult.setData(data);
-        return responseResult;
+    public static ResponseResult createSuccessResult() {
+        return createResult(MallException.SUCCESS);
     }
 
     public String getCode() {

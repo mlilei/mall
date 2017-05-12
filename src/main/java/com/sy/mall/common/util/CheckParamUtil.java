@@ -23,7 +23,7 @@ public class CheckParamUtil {
     }
 
     public static void checkRegisterParams(RegisterInfoDTO registerInfo) {
-        Preconditions.checkNotNull(registerInfo);
+        Preconditions.checkNotNull(registerInfo, "注册信息不能为空");
         Preconditions.checkArgument(null != registerInfo.getUsername(), "用户名不能为空");
         Preconditions.checkArgument(null != registerInfo.getPassword(), "密码不能为空");
         Preconditions.checkArgument(null != registerInfo.getConfirm(), "确认密码不能为空");
@@ -32,7 +32,6 @@ public class CheckParamUtil {
         Preconditions.checkArgument(registerInfo.getUsername().length() >= 6, "用户名长度应大于6位");
         Preconditions.checkArgument(registerInfo.getUsername().length() <= 20, "用户名长度应小于20位");
         Preconditions.checkArgument(registerInfo.getPassword().length() >= 6, "密码长度应大于6位");
-
         Preconditions.checkArgument(registerInfo.getPassword().equals(registerInfo.getConfirm()), "两次密码不一致");
         Preconditions.checkArgument(EMAIL_PATTERN.matcher(registerInfo.getEmail()).matches(), "邮箱格式错误");
     }

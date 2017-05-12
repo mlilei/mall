@@ -22,6 +22,11 @@ public class UserService extends BaseService<User> {
         super.setMapper(userMapper);
     }
 
+    @Override
+    public int save(User user) {
+        return userMapper.insertSelective(user);
+    }
+
     /**
      * 通过用户名,手机号,邮箱查询用户
      */
@@ -29,7 +34,7 @@ public class UserService extends BaseService<User> {
         User user = new User();
         user.setUsername(username);
         List<User> userList = userMapper.select(user);
-        return userList == null ? null : userList.get(0);
+        return userList.size() == 0 ? null : userList.get(0);
     }
 
 }

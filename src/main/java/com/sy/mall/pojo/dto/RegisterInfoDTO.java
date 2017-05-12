@@ -1,13 +1,15 @@
 package com.sy.mall.pojo.dto;
 
 /**
- * Created by lilei on 2017/5/11.
+ * Created by 李磊
+ * on 2017/5/11.
  */
 public class RegisterInfoDTO {
     private String username;
     private String password;
     private String confirm;
     private String email;
+    private String captcha;
 
     public String getUsername() {
         return username;
@@ -41,11 +43,20 @@ public class RegisterInfoDTO {
         this.email = email;
     }
 
+    public String getCaptcha() {
+        return captcha;
+    }
+
+    public void setCaptcha(String captcha) {
+        this.captcha = captcha;
+    }
+
     @Override
     public String toString() {
         return "RegisterInfoDTO{" +
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
+                ", captcha='" + captcha + '\'' +
                 '}';
     }
 }
