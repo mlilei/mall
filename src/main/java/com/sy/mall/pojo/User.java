@@ -25,6 +25,7 @@ public class User {
     private UserStatusEnum status;
     private Date createTime;
     private Date updateTime;
+    private String portrait;
 
     public Long getUserId() {
         return userId;
@@ -122,11 +123,18 @@ public class User {
         this.updateTime = updateTime;
     }
 
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", username='" + username + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", birthday=" + birthday +
                 ", phone='" + phone + '\'' +
@@ -136,6 +144,7 @@ public class User {
                 ", status=" + status +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", portrait='" + portrait + '\'' +
                 '}';
     }
 }

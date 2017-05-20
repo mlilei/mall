@@ -19,6 +19,10 @@ public class ResponseResult<T> implements Serializable {
         this.message = message;
     }
 
+    public static ResponseResult createResult(String code, String message) {
+        return new ResponseResult(code, message);
+    }
+
     public static ResponseResult createResult(MallException e) {
         return new ResponseResult(e.getCode(), e.getMessage());
     }

@@ -12,15 +12,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ViewController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @RequiresGuest
+    @RequestMapping(value = "/login.html", method = RequestMethod.GET)
     public String login() {
         return "login";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    @RequiresGuest
+    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
     public String register() {
         return "register";
+    }
+
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping(value = "/main.html", method = RequestMethod.GET)
+    public String main() {
+        return "main";
+    }
+
+    @RequestMapping(value = "/user.html", method = RequestMethod.GET)
+    public String user() {
+        return "user";
     }
 }

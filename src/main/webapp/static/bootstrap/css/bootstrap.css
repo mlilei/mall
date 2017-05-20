@@ -6434,9 +6434,9 @@ body.modal-open,
     position: fixed;
 }
 
-/*@-ms-viewport {*/
-/*width: device-width;*/
-/*}*/
+@-ms-viewport {
+    width: device-width;
+}
 
 @media screen and (max-width: 400px) {
     @-ms-viewport {

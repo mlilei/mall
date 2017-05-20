@@ -4,15 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <link href="../../static/img/icon.ico" rel="shortcut icon"/>
-    <title>个人中心修改</title>
+    <title>飞鸟商城-个人中心修改</title>
     <link rel="stylesheet" type="text/css" href="../../static/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/bootstrap/css/bootstrap-datetimepicker.css"/>
-    <link rel="stylesheet" type="text/css" href="../../static/css/config.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/userDetail.css"/>
 </head>
 
 <body>
-<div class="container">
+<nav class="navbar navbar-default head navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="main.html" target="main">欢迎来到飞鸟商城</a>
+            <div class="navbar-brand nav-a">
+                <a href="login.html">请登录 </a>
+                <a href="register.html">免费注册</a>
+            </div>
+            <div class="navbar-brand user-a undis">
+                <a href="user.html">
+                    <img src="../../static/img/bird.jpg"/>
+                    <span id="head-username">
+								张三
+							</span>
+                </a>
+            </div>
+            <span class="undis navbar-brand" id="err"></span>
+        </div>
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="user.html">个人信息</a>
+            </li>
+            <li>
+                <a href="cart.html">我的购物车</a>
+            </li>
+            <li>
+                <a href="order.html">我的订单</a>
+            </li>
+            <li>
+                <a href="#" id="logout">退出</a>
+            </li>
+        </ul>
+        <!--</div>-->
+    </div>
+</nav>
+<div class="container user-detail">
     <form class="form-horizontal" id="form">
         <div class="form-group tit">
             <h1>个人信息修改</h1>
@@ -20,7 +62,7 @@
         <div class="form-group">
             <label for="username" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="username" placeholder="用户名" readonly>
+                <input type="text" class="form-control" id="username" placeholder="用户名" readonly/>
             </div>
         </div>
         <div class="form-group">
@@ -39,7 +81,7 @@
             <!--<div class="col-sm-10">-->
             <div class="input-group date form-date col-sm-8" data-date="" data-date-format="yyyy-mm-dd"
                  data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                <input class="form-control" size="16" type="text" value="" id="startTime" readonly>
+                <input class="form-control" size="16" type="text" value="" id="birthday" readonly/>
                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
@@ -48,7 +90,7 @@
         <div class="form-group">
             <label for="phone" class="col-sm-2 control-label">手机号码</label>
             <div class="col-sm-10 clear">
-                <input type="text" class="form-control fl" id="phone" placeholder="手机号码">
+                <input type="text" class="form-control fl" id="phone" placeholder="手机号码"/>
                 <div class="fl prompt">
                     <div class="">
                         <div class="formTipsBox"></div>
@@ -59,7 +101,7 @@
         <div class="form-group">
             <label for="email" class="col-sm-2 control-label">邮箱</label>
             <div class="col-sm-10 clear">
-                <input type="email" class="form-control fl" id="email" placeholder="邮箱">
+                <input type="email" class="form-control fl" id="email" placeholder="邮箱"/>
                 <div class="fl prompt">
                     <div class="">
                         <div class="formTipsBox"></div>
@@ -70,7 +112,7 @@
         <div class="form-group">
             <label for="introduction" class="col-sm-2 control-label">介绍</label>
             <div class="col-sm-10 clear">
-                <input type="text" class="form-control fl" id="introduction" placeholder="请用一句话来形容自己">
+                <input type="text" class="form-control fl" id="introduction" placeholder="请用一句话来形容自己"/>
                 <div class="fl prompt">
                     <div class="">
                         <div class="formTipsBox"></div>
@@ -80,16 +122,16 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="gender" class="col-sm-2 control-label">性别</label>
+            <label class="col-sm-2 control-label">性别</label>
             <div class="col-sm-10">
                 <label class="radio-inline">
-                    <input type="radio" name="gender" id="male" value="MALE">男
+                    <input type="radio" name="gender" id="male" value="MALE"/>男
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="gender" id="female" value="FEMALE">女
+                    <input type="radio" name="gender" id="female" value="FEMALE"/>女
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="gender" id="unknow" value="UNKNOW" checked="checked">保密
+                    <input type="radio" name="gender" id="unknow" value="UNKNOW" checked="checked"/>保密
                 </label>
             </div>
         </div>
@@ -101,6 +143,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default" id="user-detail-submit">提交</button>
+                <span class="user-span">不想改了？<a href="user.html">那返回吧！</a></span>
             </div>
         </div>
     </form>
@@ -108,8 +151,9 @@
 <script src="../../static/js/lib/jquery2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../static/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../static/bootstrap/js/bootstrap-datetimepicker.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/head.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../static/js/userDetail.js" type="text/javascript" charset="utf-8"></script>
-<script src="../../static/js/config.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/input.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $('.form-date').datetimepicker({
         language: 'zh-CN',

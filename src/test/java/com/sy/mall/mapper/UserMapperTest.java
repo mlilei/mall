@@ -32,7 +32,7 @@ public class UserMapperTest extends BaseTest {
     public void test2() {
         User user = new User();
         user.setUserId(1L);
-        System.out.println(userMapper.selectByPrimaryKey(user));
+        System.out.println(userMapper.selectByPrimaryKey(1L));
     }
     @Test
     public void save(){

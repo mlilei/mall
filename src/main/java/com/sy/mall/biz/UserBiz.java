@@ -18,10 +18,12 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 import static com.sy.mall.common.util.CheckParamUtil.checkLoginParams;
 import static com.sy.mall.common.util.CheckParamUtil.checkRegisterParams;
@@ -55,7 +57,8 @@ public class UserBiz {
         BeanUtils.copyProperties(registerInfo, user);
         user.setCreateTime(new Date());
         user.setGender(GenderEnum.UNKNOW);
-        user.setNickname(user.getUsername());
+        user.setIntroduction("这个人很懒,什么都没留下!");
+        user.setPortrait(userService.getRandomPortrait());
         //密码加密
         String salt = BCrypt.gensalt();
         user.setPassword(BCrypt.hashpw(user.getPassword(), salt));
@@ -82,8 +85,11 @@ public class UserBiz {
     }
 
     public ResponseResult getUser() {
-        User user = (User) ShiroUtils.getSubject().getPrincipal();
-        user = userService.show(user);
+        User u = (User) ShiroUtils.getSubject().getPrincipal();
+        User user = new User();
+        user.setUserId(u.getUserId());
+        List<User> userList = userMapper.select(user);
+        user = userService.show(userList.get(0));
         ResponseResult successResult = ResponseResult.createSuccessResult();
         successResult.setData(user);
         return successResult;

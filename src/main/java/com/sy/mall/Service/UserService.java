@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by 李磊
@@ -17,6 +18,7 @@ import java.util.List;
 public class UserService extends BaseService<User> {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
     private static final String DEFAULT_DATE = "1971-01-01 00:00:00";
+    private static final String PORTRAIT_PATH = "";
 
     @Resource
     private UserMapper userMapper;
@@ -51,5 +53,10 @@ public class UserService extends BaseService<User> {
         user.setCreateTime(null);
         user.setUpdateTime(null);
         return user;
+    }
+
+    public String getRandomPortrait() {
+        Random random = new Random();
+        return "/upfile/portrait/default" + random.nextInt(37) + ".jpg";
     }
 }

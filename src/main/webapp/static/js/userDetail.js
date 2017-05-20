@@ -34,7 +34,7 @@ $(function () {
     var month = today.getMonth() + 1; //此方法获得的月份是从0---11，所以要加1才是当前月份
     var day = today.getDate(); //获得当前日期
 
-    $('#startTime').val(year + '-' + getZero(month) + '-' + getZero(day));
+    $('#birthday').val(year + '-' + getZero(month) + '-' + getZero(day));
     $.ajax({
         type: "get",
         url: url + '/user',
@@ -49,10 +49,10 @@ $(function () {
                 $('#phone').val(data.data.phone);
                 $('#email').val(data.data.email);
                 $('#introduction').val(data.data.introduction);
-                if (data.data.username == 'MALE') {
+                if (data.data.gender == 'MALE') {
                     $('#male').attr("checked", true);
                 }
-                else if (data.data.username == 'FEMALE') {
+                else if (data.data.gender == 'FEMALE') {
                     $('#female').attr("checked", true);
                 }
                 else {
@@ -72,38 +72,45 @@ $(function () {
 
     //点击修改按钮
     $('#user-detail-submit').click(function (e) {
+
+
         var username = $('#username').val();
         var nickname = $('#nickname').val();
         var birthday = $('#birthday').val();
         var phone = $('#phone').val();
         var email = $('#email').val();
         var introduction = $('#introduction').val();
-//		$('input:radio[name="gender"]:checked').val()
         var gender = $('input:radio[name="gender"]:checked').val();  //选择被选中Radio的Value值
         var genderNum = '';
         if (gender == 'UNKNOW') genderNum = 0;
         if (gender == 'MALE') genderNum = 1;
         if (gender == 'FEMALE') genderNum = 2;
-        $('#err-prompt').empty().append(gender + ' ' + genderNum);
+//		$('#err-prompt').empty().append(gender+' '+genderNum);
 
         $.ajax({
             type: "post",
-            url: url + '/user',
+            url: url + '/user/update',
             data: {
-                _message: put,
-                principal: principal,
-                credentials: credentials,
-                captcha: captcha
+                username: username,
+                nickname: nickname,
+                birthday: birthday,
+                phone: phone,
+                email: email,
+                introduction: introduction,
+                gender: genderNum
             },
             xhrFields: {
                 withCredentials: true //支持附带详细信息
             },
             success: function (data) {
                 if (data.code == succCode) {
-                    $('#err-prompt').empty().append('提交信息成功!!!!');
+                    $('#err-prompt').empty().append('提交信息 ' + data.message + '，2s后返回个人中心');
+                    setTimeout(function () {
+                        jumpPage('/user');
+                    }, 2000);
                 }
                 else {
-                    $('#err-prompt').empty().append('提交信息失败??????????');
+                    $('#err-prompt').empty().append('提交信息 ' + data.message);
                 }
             },
             error: function () {
@@ -123,4 +130,19 @@ function getZero(d) {
         return '0' + d;
     }
     return d;
+}
+
+function jumpPage(page) {
+    $.ajax({
+        type: "get",
+        url: url + page,
+        success: function (data) {
+            $('#err-prompt').empty().append('成功');
+            $('body').empty().append(data);
+        },
+        error: function () {
+            console.log('接口错误');
+            $('#err-prompt').empty().append('接口错误---跳转时');
+        }
+    });
 }

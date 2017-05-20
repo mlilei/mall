@@ -35,19 +35,22 @@ $(function () {
                 withCredentials: true //支持附带详细信息
             },
             success: function (data) {
-                $('#err-prompt').empty().append(data.message);
-                console.log(data.message);
-                console.log('2 :' + principal + ' ' + credentials + ' ' + captcha);
-                console.log(data);
-                console.log('succ');
-                if (data.code != succCode) {
+                if (data.code == succCode) {
+                    $('#err-prompt').empty().append(data.message + '，2s后跳转到主页');
+                    setTimeout(function () {
+                        jumpPage('/main');
+                    }, 2000);
+                }
+
+                else {
                     changeCode();
                     console.log("data.code");
+                    $('#err-prompt').empty().append(data.message);
                 }
             },
             error: function () {
                 console.log('接口错误');
-                $('#err-prompt').empty().append('接口错误');
+                $('#err-prompt').empty().append('接口错误--登录');
             }
         });
         $('#credentials').val('');
@@ -79,20 +82,25 @@ $(function () {
             },
             //			crossDomain:true,//请求偏向外域
             success: function (data) {
-                $('#err-prompt').empty().append(data.message);
-                console.log(data.message);
-                console.log(data);
-                console.log('succ');
-                if (data.code != succCode) {
+                if (data.code == succCode) {
+                    $('#err-prompt').empty().append(data.message + '，2s后跳转到登录页');
+                    setTimeout(function () {
+                        jumpPage('/login');
+                    }, 2000);
+                }
+                else {
                     changeCode();
+                    $('#err-prompt').empty().append(data.message);
                 }
             },
             error: function () {
                 console.log('接口错误');
-                $('#err-prompt').empty().append('接口错误');
+                $('#err-prompt').empty().append('接口错误--注册');
             }
         });
-
+        $('#password').val('');
+        $('#confirm').val('');
+        $('#captcha').val('');
         e.preventDefault();
     });
 
@@ -111,3 +119,17 @@ function changeCode() {
     event.cancelBubble = true;
 }
 
+function jumpPage(page) {
+    $.ajax({
+        type: "get",
+        url: url + page,
+        success: function (data) {
+            $('#err-prompt').empty().append('成功');
+            $('body').empty().append(data);
+        },
+        error: function () {
+            console.log('接口错误');
+            $('#err-prompt').empty().append('接口错误---跳转时');
+        }
+    });
+}

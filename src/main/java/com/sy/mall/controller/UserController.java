@@ -2,6 +2,7 @@ package com.sy.mall.controller;
 
 import com.sy.mall.ResponseResult;
 import com.sy.mall.biz.UserBiz;
+import com.sy.mall.common.util.ShiroUtils;
 import com.sy.mall.pojo.User;
 import com.sy.mall.pojo.dto.LoginInfoDTO;
 import com.sy.mall.pojo.dto.RegisterInfoDTO;
@@ -66,10 +67,19 @@ public class UserController {
      */
     @RequiresAuthentication
     @ResponseBody
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResponseResult put(User user) {
-
         return userBiz.putUser(user);
+    }
+
+    @RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseResult checkLogin() {
+        User user = (User) ShiroUtils.getSubject().getPrincipal();
+        if (null == user) {
+            return ResponseResult.createResult("0", "未登录");
+        }
+        return ResponseResult.createResult("1", user.getUsername());
     }
 
 }

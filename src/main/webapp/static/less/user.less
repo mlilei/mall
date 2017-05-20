@@ -1,0 +1,76 @@
+@import "config.less";
+@import "head.less";
+
+@boxWidth: 380px;
+@imgWidth: 100px;
+//@color: #e72429;  //#0078D7  //e72429   //4fb375
+.user {
+  padding: 100px 560px;
+  background: url("../img/user-bg.png") no-repeat center left;
+  background-size: 50%;
+  .box {
+    width: @boxWidth;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px dashed @redColor;
+    position: relative;
+    .cont-img {
+      position: absolute;
+      top: -40px;
+      left: (@boxWidth - @imgWidth) / 2;
+      width: @imgWidth + 2;
+      height: @imgWidth + 2;
+      margin: 0 auto;
+      border-radius: @imgWidth;
+      background-color: @redColor;
+      border: 1px solid @redColor;
+      img {
+        width: @imgWidth;
+        height: @imgWidth;
+        border-radius: @imgWidth;
+      }
+    }
+    .cont-user {
+      margin-top: 50px;
+      .nickname {
+        padding: 40px 0 20px;
+        position: relative;
+        i {
+          font-size: 15px;
+          padding-left: 5px;
+          position: absolute;
+          top: 40px;
+        }
+      }
+      .phone {
+        padding-bottom: 15px;
+      }
+      .introduction {
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: 40px;
+      }
+      .row {
+        margin: 0;
+        padding: 16px 0;
+        border-top: 1px dotted #E3E3E3;
+      }
+      .order {
+        margin-top: 5px;
+        a {
+          display: block;
+          padding: 5px 0;
+          position: relative;
+          .badge {
+            position: absolute;
+            top: 0;
+            padding: 2px 4px;
+            font-size: 10px;
+            background: @redColor;
+          }
+        }
+      }
+    }
+  }
+
+}
