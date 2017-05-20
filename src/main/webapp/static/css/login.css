@@ -19,31 +19,25 @@ ul {
     margin: 0;
     padding: 0;
 }
-
 em {
     font-style: normal;
 }
-
 li {
     list-style: none;
 }
-
 a {
     text-decoration: none;
     color: #757575;
 }
-
 img {
     border: none;
     vertical-align: top;
 }
-
 a,
 img,
 input {
     border: 0 none;
 }
-
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
@@ -51,29 +45,23 @@ a {
     -webkit-appearance: none;
     appearance: none;
 }
-
 table {
     border-collapse: collapse;
 }
-
 input::-ms-clear {
     display: none;
 }
-
 input::-ms-reveal {
     display: none;
 }
-
 textarea {
     resize: none;
     overflow: auto;
 }
-
 body {
     font-size: 14px;
     font-family: "楷体";
 }
-
 h1,
 h2,
 h3,
@@ -81,84 +69,68 @@ h4,
 h5 {
     font-family: "楷体";
 }
-
 body {
     height: 100%;
     background: #fff;
 }
-
 :focus,
 a,
 label {
     outline: 0 none;
 }
-
 fieldset {
     border: 0;
     margin: 0;
     padding: 0;
 }
-
 legend {
     margin: 0;
     padding: 0;
 }
-
 /* end reset */
 /* public */
 .clear {
     zoom: 1;
 }
-
 .clear:after {
     content: '';
     display: block;
     clear: both;
 }
-
 .fl {
     float: left;
 }
-
 .fr {
     float: right;
 }
-
 .undis {
     display: none;
 }
-
 .container {
     padding: 0;
 }
-
 #form {
     width: 532px;
 }
-
 input.eInputFocus,
 input:focus {
     border: 1px solid #49a9ee;
     box-shadow: 0 0 0 2px rgba(16, 142, 233, 0.2);
 }
-
 input.eInputError,
 input.eInputError:focus,
 input.eInputError:hover {
     border: 1px solid #ff7f7d;
 }
-
 .kaptcha-input {
     width: 128.25px;
     margin-right: 15px;
     margin-top: 1.5px;
 }
-
 .kaptcha-image {
     width: 100px;
     height: 37px;
 }
-
 .formTipsOk {
     position: relative;
     top: 9px;
@@ -170,24 +142,20 @@ input.eInputError:hover {
     overflow: hidden;
     text-indent: -999em;
 }
-
 .captcha-a {
     padding-right: 6px;
     font-size: 12px;
     display: inline-block;
     line-height: 37px;
 }
-
 .captcha-prompt {
     position: relative;
     right: 5px;
 }
-
 .prompt p {
     display: inline-block;
     line-height: 34px;
 }
-
 .prompt .formTipsIcon {
     position: relative;
     top: 9px;
@@ -200,94 +168,73 @@ input.eInputError:hover {
     overflow: hidden;
     text-indent: -999em;
 }
-
 .prompt .formTipsWarn .formTipsIcon {
     background-position: 0 -20px;
 }
-
 .err-prompt {
     color: #C9302C;
 }
-
 .form-horizontal .form-group {
     margin-left: 0;
     margin-right: 0;
 }
-
 .navbar {
     margin: 0;
 }
-
 .red-price {
     color: #e72429;
 }
-
 .green-price {
     color: #4fb375;
 }
-
 .grey-price {
     color: #aaa;
 }
-
 .modal .modal-header {
     padding: 10px;
     background: #f3f3f3;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
-
 .modal .modal-body {
     font-size: 20px;
 }
-
 .modal .btn-primary {
     background: #4fb375;
     border-color: #4fb375;
 }
-
 .navbar .container {
     margin-top: 0;
 }
-
 .navbar .container .navbar-brand {
     margin-left: 0;
 }
-
 .head a {
     text-decoration: none;
 }
-
 .head a:hover,
 .head a:focus {
     text-decoration: none;
 }
-
 .head .nav-a {
     padding-left: 0;
 }
-
 .head .nav-a a {
     font-size: 15px;
     color: #4fb375;
 }
-
 .head .nav-a a:hover {
     color: #429762;
 }
-
 .head .user-a {
     padding-left: 0;
 }
-
 .head .user-a a {
     font-size: 18px;
 }
-
 .head .user-a a:hover {
     color: #000000;
 }
-
 .head .user-a img {
     width: 21px;
     height: 21px;
@@ -302,12 +249,10 @@ input.eInputError:hover {
 .tit h1 {
     font-family: "楷体";
 }
-
 .jump-span {
     padding-left: 20px;
     vertical-align: -webkit-baseline-middle;
 }
-
 .jump-span a {
     color: #0078d7;
 }
@@ -332,13 +277,11 @@ input.eInputError:hover {
     margin-right: 5px;
     margin-top: 1.5px;
 }
-
 .login {
     padding: 183.33333333px 450px;
     background: url("../img/login-bg.jpg") no-repeat center left;
     background-size: 40%;
 }
-
 .login label {
     font-family: "楷体";
 }
@@ -347,11 +290,9 @@ input.eInputError:hover {
     background: url("../img/bird3.jpg") no-repeat center right;
     background-size: 40%;
 }
-
 .register .col-sm-3 {
     width: 17% !important;
 }
-
 .register .col-sm-9 {
     width: 83% !important;
 }

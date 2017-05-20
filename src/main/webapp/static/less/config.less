@@ -19,25 +19,31 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 em {
   font-style: normal;
 }
+
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   color: #757575;
 }
+
 img {
   border: none;
   vertical-align: top;
 }
+
 a,
 img,
 input {
   border: 0 none;
 }
+
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
@@ -45,9 +51,11 @@ a {
   -webkit-appearance: none;
   appearance: none;
 }
+
 table {
   border-collapse: collapse;
 }
+
 //input,
 //textarea {
 //  outline: none;
@@ -63,13 +71,16 @@ table {
 input::-ms-clear {
   display: none;
 }
+
 input::-ms-reveal {
   display: none;
 }
+
 textarea {
   resize: none;
   overflow: auto;
 }
+
 body {
   font-size: 14px;
   font-family: "楷体";
@@ -82,40 +93,49 @@ h4,
 h5 {
   font-family: "楷体";
 }
+
 body {
   height: 100%;
   background: #fff;
 }
+
 :focus,
 a,
 label {
   outline: 0 none;
 }
+
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
+
 legend {
   margin: 0;
   padding: 0;
 }
+
 /* end reset */
 /* public */
 .clear {
   zoom: 1;
 }
+
 .clear:after {
   content: '';
   display: block;
   clear: both;
 }
+
 .fl {
   float: left;
 }
+
 .fr {
   float: right;
 }
+
 .undis {
   display: none;
 }
@@ -133,30 +153,36 @@ legend {
   //  margin: 0 auto;
   //  margin: 0;
 }
+
 #form {
   width: @form-width;
   //  margin: 100px auto 0;
 }
+
 input.eInputFocus,
 input:focus {
   border: 1px solid #49a9ee;
   box-shadow: 0 0 0 2px rgba(16, 142, 233, 0.2);
 }
+
 input.eInputError,
 input.eInputError:focus,
 input.eInputError:hover {
   border: 1px solid #ff7f7d;
 }
+
 .kaptcha-input {
   width: @form-width - (@form-width / 11.2)*8.5;
   margin-right: 15px;
   margin-top: (@kaptcha-image-height - @input-height)/2;
 }
+
 .kaptcha-image {
   width: @kaptcha-image-width;
   height: @kaptcha-image-height;
   //  margin-right: 5px;
 }
+
 .formTipsOk {
   position: relative;
   top: (@input-height - @formTipsOk-height)/2;
@@ -168,16 +194,19 @@ input.eInputError:hover {
   overflow: hidden;
   text-indent: -999em;
 }
+
 .captcha-a {
   padding-right: 6px;
   font-size: 12px;
   display: inline-block;
   line-height: @kaptcha-image-height;
 }
+
 .captcha-prompt {
   position: relative;
   right: 5px;
 }
+
 .prompt {
   p {
     display: inline-block;
@@ -199,13 +228,16 @@ input.eInputError:hover {
     background-position: 0 -20px;
   }
 }
+
 .err-prompt {
   color: #C9302C;
 }
+
 .form-horizontal .form-group {
   margin-left: 0;
   margin-right: 0;
 }
+
 .navbar {
   margin: 0;
 }

@@ -12,19 +12,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ViewController {
 
+    @RequestMapping(value = "/404.html", method = RequestMethod.GET)
+    public String errorPage() {
+        return "404";
+    }
+
+    @RequestMapping(value = "/cart.html", method = RequestMethod.GET)
+    public String cart() {
+        return "cart";
+    }
+
+    @RequestMapping(value = "/customerService.html", method = RequestMethod.GET)
+    public String customerService() {
+        return "customerService";
+    }
+
+    @RequestMapping(value = "/head.html", method = RequestMethod.GET)
+    public String head() {
+        return "head";
+    }
+
     @RequestMapping(value = "/login.html", method = RequestMethod.GET)
     public String login() {
         return "login";
-    }
-
-    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
-    public String register() {
-        return "register";
-    }
-
-    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String index() {
-        return "index";
     }
 
     @RequestMapping(value = "/main.html", method = RequestMethod.GET)
@@ -32,8 +42,48 @@ public class ViewController {
         return "main";
     }
 
+    @RequestMapping(value = "/main-index.html", method = RequestMethod.GET)
+    public String mainIndex() {
+        return "main-index";
+    }
+
+    @RequestMapping(value = "/order.html", method = RequestMethod.GET)
+    public String order() {
+        return "order";
+    }
+
+    @RequestMapping(value = "/refuse.html", method = RequestMethod.GET)
+    public String refuse() {
+        return "refuse";
+    }
+
+    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
+    public String register() {
+        return "register";
+    }
+
+    @RequestMapping(value = "/specifications.html", method = RequestMethod.GET)
+    public String specifications() {
+        return "specifications";
+    }
+
     @RequestMapping(value = "/user.html", method = RequestMethod.GET)
     public String user() {
         return "user";
+    }
+
+    @RequestMapping(value = "/userDetail.html", method = RequestMethod.GET)
+    public String userDetail() {
+        return "userDetail";
+    }
+
+    @RequestMapping(value = "/waresDetail.html", method = RequestMethod.GET)
+    public String waresDetail() {
+        return "waresDetail";
+    }
+
+    @RequestMapping(value = "/waresIntroduction.html", method = RequestMethod.GET)
+    public String waresIntroduction() {
+        return "waresIntroduction";
     }
 }
