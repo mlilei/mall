@@ -56,7 +56,7 @@
 <div class="container main">
     <div class="content-logo row">
         <div class="logo col-md-4">
-            <a href="#"></a>
+            <a href="#" class="main-page"></a>
             <img src="../../static/img/logo-tit2.jpg"/>
         </div>
         <form class="form-horizontal col-md-4">
@@ -68,7 +68,7 @@
             </div>
         </form>
         <div class="cart col-md-4 text-center">
-            <a href="cart.html" class="cart-a">
+            <a href="#" class="cart-a cart-page">
                 <i class="glyphicon glyphicon-shopping-cart icon-cart"></i>
                 <span>我的购物车<span class="badge">2</span></span>
                 <i class="glyphicon glyphicon-chevron-right icon-next"></i>
@@ -97,7 +97,7 @@
     </nav>
 
     <div class="content-wares">
-        <iframe src="main-index.html" width="100%" height="600" frameborder="0" scrolling="no" name="waresDetail"
+        <iframe src="mainIndex.html" width="100%" height="600" frameborder="0" scrolling="no" name="waresDetail"
                 class="" id="waresIndex" onload="iFrameHeight('waresIndex')"></iframe>
         <iframe src="waresDetail.html" width="100%" height="600" frameborder="0" scrolling="no" name="waresDetail"
                 class="undis" id="waresDetail" onload="iFrameHeight('waresDetail')"></iframe>
@@ -231,6 +231,7 @@
             ifm.height = subWeb.body.scrollHeight;
         }
     };
+
 </script>
 </body>
 
