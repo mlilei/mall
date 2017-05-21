@@ -53,7 +53,7 @@ function errPage(text) {
         + '<button class="btn btn-danger"><a href="main.html">去首页看看</a></button>'
         + '</div>'
         + '<div class="right-img fl">'
-        + '<img src="../../static/img/bird1.png"/>'
+        + '<img src="../../static/img/bird1.jpg"/>'
         + '</div>'
         + '</div>';
     return page;
@@ -84,7 +84,7 @@ function succPage() {
         + '</td>'
         + '<td colspan="2" class="img-wares">'
         + '<span>'
-        + '<img src="../../static/img/bird.png"/>'
+        + '<img src="../../static/img/bird.jpg"/>'
         + '<a href="#">飞鸟商城</a>'
         + '</span>'
         + '</td>'
@@ -98,7 +98,7 @@ function succPage() {
         + '<tr class="tr-bd">'
         + '<td class="bd-img-tit clear">'
         + '<div class="img fl">'
-        + '<img src="../../static/img/bird2.png" />'
+        + '<img src="../../static/img/bird2.jpg" />'
         + '</div>'
         + '<div class="tit fl">'
         + '<p><a href="#">飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a></p>'
