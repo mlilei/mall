@@ -6,7 +6,7 @@
 //form跳转路径
 var actionUrl = '/main.html';
 //接口地址
-var url = 'http://120.24.68.200:8080';
+var url = '';
 var succCode = 200;
 
 $(function () {
@@ -38,7 +38,7 @@ $(function () {
                 if (data.code == succCode) {
                     $('#err-prompt').empty().append(data.message + '，2s后跳转到主页');
                     setTimeout(function () {
-                        jumpPage('/main');
+                        jumpPage('/main.html');
                     }, 2000);
                 }
 
@@ -85,7 +85,7 @@ $(function () {
                 if (data.code == succCode) {
                     $('#err-prompt').empty().append(data.message + '，2s后跳转到登录页');
                     setTimeout(function () {
-                        jumpPage('/login');
+                        jumpPage('/login.html');
                     }, 2000);
                 }
                 else {
@@ -120,16 +120,5 @@ function changeCode() {
 }
 
 function jumpPage(page) {
-    $.ajax({
-        type: "get",
-        url: url + page,
-        success: function (data) {
-            $('#err-prompt').empty().append('成功');
-            $('body').empty().append(data);
-        },
-        error: function () {
-            console.log('接口错误');
-            $('#err-prompt').empty().append('接口错误---跳转时');
-        }
-    });
+    window.location.href = url + page;
 }

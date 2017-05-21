@@ -3,7 +3,7 @@
  * 2017-05-15
  * */
 //接口地址
-var url = 'http://120.24.68.200:8080';
+var url = '';
 //var succCode = 1;
 
 $(function () {
@@ -97,18 +97,7 @@ function logout() {
 
 //跳转页面
 function jumpPage(page) {
-    $.ajax({
-        type: "get",
-        url: url + page,
-        success: function (data) {
-            $('#err-prompt').empty().append('成功');
-            $('body').empty().append(data);
-        },
-        error: function () {
-            console.log('接口错误');
-            $('#err-prompt').empty().append('接口错误---跳转时');
-        }
-    });
+    window.location.href = url + page;
 
 
 //	return $(a).attr('href',url+page);
