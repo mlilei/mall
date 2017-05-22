@@ -3,7 +3,7 @@
  * 2017-05-17
  * */
 //接口地址
-var url = 'http://120.24.68.200:8080';
+var url = '';
 //var succCode = 1;
 
 $(function () {

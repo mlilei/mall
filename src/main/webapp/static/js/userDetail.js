@@ -3,7 +3,7 @@
  * 2017-05-11
  * */
 //接口地址
-var url = 'http://120.24.68.200:8080';
+var url = '';
 var succCode = 200;
 
 $(function () {
@@ -45,7 +45,8 @@ $(function () {
             if (data.code == succCode) {
                 $('#username').val(data.data.username);
                 $('#nickname').val(data.data.nickname);
-                $('#birthday').val(data.data.birthday);
+                var birthday = data.data.birthday.split(" ", 1);
+                $('#birthday').val(birthday);
                 $('#phone').val(data.data.phone);
                 $('#email').val(data.data.email);
                 $('#introduction').val(data.data.introduction);
@@ -106,7 +107,7 @@ $(function () {
                 if (data.code == succCode) {
                     $('#err-prompt').empty().append('提交信息 ' + data.message + '，2s后返回个人中心');
                     setTimeout(function () {
-                        jumpPage('/user');
+                        jumpPage('/user.html');
                     }, 2000);
                 }
                 else {
@@ -133,16 +134,5 @@ function getZero(d) {
 }
 
 function jumpPage(page) {
-    $.ajax({
-        type: "get",
-        url: url + page,
-        success: function (data) {
-            $('#err-prompt').empty().append('成功');
-            $('body').empty().append(data);
-        },
-        error: function () {
-            console.log('接口错误');
-            $('#err-prompt').empty().append('接口错误---跳转时');
-        }
-    });
+    window.location.href = url + page;
 }

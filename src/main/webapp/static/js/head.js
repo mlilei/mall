@@ -4,7 +4,7 @@
  * */
 //接口地址
 var url = '';
-//var succCode = 1;
+var succCode = 200;
 
 $(function () {
 
@@ -19,13 +19,13 @@ $(function () {
                 $('.nav-a').addClass('undis');
                 $('.user-a').removeClass('undis');
                 $('#head-username').empty().append(data.message);
-                var imgUrl = getUserImg(data.message);
-
-                if (imgUrl == '') {
-                    $('#head-username').siblings('img').attr('src', '../../static/img/bird.jpg');
-                } else {
-                    $('#head-username').siblings('img').attr('src', url + imgUrl);
-                }
+                getUserImg(data.message);
+                // var imgUrl = getUserImg(data.message);
+                // if (imgUrl == '' || imgUrl == undefined) {
+                //     $('#head-username').siblings('img').attr('src', '../../static/img/bird.jpg');
+                // } else {
+                //     $('#head-username').siblings('img').attr('src', url + imgUrl);
+                // }
 
             }
             else {
@@ -106,6 +106,7 @@ function jumpPage(page) {
 
 //访问个人信息接口
 function getUserImg(user) {
+    // var portrait = '';
     $.ajax({
         type: "get",
         url: url + '/user',
@@ -114,10 +115,11 @@ function getUserImg(user) {
         },
         success: function (data) {
             if (data.code == succCode) {
-                if (data.data.nickname == user) {
-                    return data.data.portrait;
+                if (data.data.username == user) {
+                    if (data.data.portrait)
+                        $('#head-username').siblings('img').attr('src', data.data.portrait);
+                    else $('#head-username').siblings('img').attr('src', '../../static/img/bird.jpg');
                 }
-
             }
             else {
                 $('#err-prompt').empty().append('获取信息失败 ');
@@ -129,5 +131,5 @@ function getUserImg(user) {
             $('#err-prompt').empty().append('接口错误---加载页面');
         }
     });
-
+    // return portrait;
 }

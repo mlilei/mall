@@ -1,5 +1,6 @@
 package com.sy.mall.controller;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresGuest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class ViewController {
         return "404";
     }
 
+    @RequiresAuthentication
     @RequestMapping(value = "/cart.html", method = RequestMethod.GET)
     public String cart() {
         return "cart";
@@ -42,11 +44,12 @@ public class ViewController {
         return "main";
     }
 
-    @RequestMapping(value = "/main-index.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/mainIndex.html", method = RequestMethod.GET)
     public String mainIndex() {
-        return "main-index";
+        return "mainIndex";
     }
 
+    @RequiresAuthentication
     @RequestMapping(value = "/order.html", method = RequestMethod.GET)
     public String order() {
         return "order";
@@ -67,11 +70,13 @@ public class ViewController {
         return "specifications";
     }
 
+    @RequiresAuthentication
     @RequestMapping(value = "/user.html", method = RequestMethod.GET)
     public String user() {
         return "user";
     }
 
+    @RequiresAuthentication
     @RequestMapping(value = "/userDetail.html", method = RequestMethod.GET)
     public String userDetail() {
         return "userDetail";
@@ -80,6 +85,11 @@ public class ViewController {
     @RequestMapping(value = "/waresDetail.html", method = RequestMethod.GET)
     public String waresDetail() {
         return "waresDetail";
+    }
+
+    @RequestMapping(value = "/evaluate.html", method = RequestMethod.GET)
+    public String evaluate() {
+        return "evaluate";
     }
 
     @RequestMapping(value = "/waresIntroduction.html", method = RequestMethod.GET)

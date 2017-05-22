@@ -4,7 +4,7 @@
  * */
 
 //接口地址
-var url = 'http://120.24.68.200:8080';
+var url = '';
 var succCode = 200;
 
 $(function () {
@@ -25,7 +25,8 @@ $(function () {
                 }
                 $('#username').empty().append(data.data.nickname);
                 $('#nickname').empty().append(data.data.username);
-                $('#birthday').empty().append(data.data.birthday);
+                var birthday = data.data.birthday.split(" ", 1);
+                $('#birthday').empty().append(birthday);
                 $('#phone').empty().append(data.data.phone);
                 $('#email').empty().append(data.data.email);
                 $('#introduction').empty().append(data.data.introduction);

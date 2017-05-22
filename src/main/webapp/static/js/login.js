@@ -118,7 +118,7 @@ function changeCode() {
     $('#kaptchaImage').hide().attr('src', url + '/captcha.jpg?' + Math.floor(Math.random() * 100)).fadeIn();
     event.cancelBubble = true;
 }
-
+//跳转页面
 function jumpPage(page) {
     window.location.href = url + page;
 }

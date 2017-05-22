@@ -89,7 +89,7 @@
             <props>
                 <!--登录-->
                 <prop key="org.apache.shiro.authz.UnauthenticatedException">
-                    redirect:/login
+                    redirect:/login.html
                 </prop>
                 <!--授权-->
                 <prop key="org.apache.shiro.authz.UnauthorizedException">
