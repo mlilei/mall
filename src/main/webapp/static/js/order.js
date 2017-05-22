@@ -127,7 +127,7 @@ function succPage() {
         + '<span>交易成功</span>'
         + '</td>'
         + '<td>'
-        + '<button class="btn btn-default">评价</button>'
+        + '<button class="btn btn-default evaluate-page">评价</button>'
         + '</td>'
         + '</tr>'
         + '</tbody>'

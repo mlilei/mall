@@ -19,10 +19,12 @@ $(function () {
                 $('.nav-a').addClass('undis');
                 $('.user-a').removeClass('undis');
                 $('#head-username').empty().append(data.message);
-                if (data.portrait == '' || data.portrait == undefined) {
+                var imgUrl = getUserImg(data.message);
+
+                if (imgUrl == '') {
                     $('#head-username').siblings('img').attr('src', '../../static/img/bird.jpg');
                 } else {
-                    $('#head-username').siblings('img').attr('src', url + data.data.portrait);
+                    $('#head-username').siblings('img').attr('src', url + imgUrl);
                 }
 
             }
@@ -70,7 +72,10 @@ $(function () {
         jumpPage('/order.html');
         e.preventDefault();
     });
-	
+    $('.evaluate-page').click(function (e) {
+        jumpPage('/evaluate.html');
+        e.preventDefault();
+    });
 });
 
 function logout() {
@@ -82,9 +87,8 @@ function logout() {
         },
         success: function (data) {
 
-            window.location = "index.html";
+            jumpPage('/main.html');
 
-            $('body').empty().append(data);
             $('#err').removeClass('undis');
             $('#err').empty().append(data.message);
         },
@@ -98,7 +102,32 @@ function logout() {
 //跳转页面
 function jumpPage(page) {
     window.location.href = url + page;
+}
 
+//访问个人信息接口
+function getUserImg(user) {
+    $.ajax({
+        type: "get",
+        url: url + '/user',
+        xhrFields: {
+            withCredentials: true //支持附带详细信息
+        },
+        success: function (data) {
+            if (data.code == succCode) {
+                if (data.data.nickname == user) {
+                    return data.data.portrait;
+                }
 
-//	return $(a).attr('href',url+page);
+            }
+            else {
+                $('#err-prompt').empty().append('获取信息失败 ');
+                $('body').empty().append(data);
+            }
+        },
+        error: function () {
+            console.log('接口错误');
+            $('#err-prompt').empty().append('接口错误---加载页面');
+        }
+    });
+
 }
