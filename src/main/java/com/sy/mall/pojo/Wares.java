@@ -13,11 +13,9 @@ public class Wares {
     private String imageUrl;
     private Integer waresType;
     private BigDecimal price;
-    private String color;
-    private String size;
-    private String resolution;
     private String memory;
-    private String cpu;
+    private String color;
+    private String detail;
     private Date createTime;
     private Date updateTime;
 
@@ -61,30 +59,6 @@ public class Wares {
         this.price = price;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getResolution() {
-        return resolution;
-    }
-
-    public void setResolution(String resolution) {
-        this.resolution = resolution;
-    }
-
     public String getMemory() {
         return memory;
     }
@@ -93,12 +67,20 @@ public class Wares {
         this.memory = memory;
     }
 
-    public String getCpu() {
-        return cpu;
+    public String getColor() {
+        return color;
     }
 
-    public void setCpu(String cpu) {
-        this.cpu = cpu;
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public Date getCreateTime() {
@@ -125,11 +107,9 @@ public class Wares {
                 ", imageUrl='" + imageUrl + '\'' +
                 ", waresType=" + waresType +
                 ", price=" + price +
-                ", color='" + color + '\'' +
-                ", size='" + size + '\'' +
-                ", resolution='" + resolution + '\'' +
                 ", memory='" + memory + '\'' +
-                ", cpu='" + cpu + '\'' +
+                ", color='" + color + '\'' +
+                ", detail='" + detail + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

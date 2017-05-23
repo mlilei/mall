@@ -18,12 +18,13 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.sy.mall.common.util.CheckParamUtil.checkLoginParams;
 import static com.sy.mall.common.util.CheckParamUtil.checkRegisterParams;
@@ -92,6 +93,8 @@ public class UserBiz {
         user = userService.show(userList.get(0));
         ResponseResult successResult = ResponseResult.createSuccessResult();
         successResult.setData(user);
+        Map<String,Integer> map = new HashMap<>();
+        map.put("1",2);
         return successResult;
     }
 
