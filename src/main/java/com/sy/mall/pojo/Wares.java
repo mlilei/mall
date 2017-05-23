@@ -11,13 +11,31 @@ public class Wares {
     private BigInteger waresId;
     private String waresName;
     private String imageUrl;
-    private Integer waresType;
+    private String waresType;
     private BigDecimal price;
     private String memory;
     private String color;
     private String detail;
+    private Integer score;
+    private Integer commentNumber;
     private Date createTime;
     private Date updateTime;
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getCommentNumber() {
+        return commentNumber;
+    }
+
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
 
     public BigInteger getWaresId() {
         return waresId;
@@ -43,11 +61,11 @@ public class Wares {
         this.imageUrl = imageUrl;
     }
 
-    public Integer getWaresType() {
+    public String getWaresType() {
         return waresType;
     }
 
-    public void setWaresType(Integer waresType) {
+    public void setWaresType(String waresType) {
         this.waresType = waresType;
     }
 
@@ -110,6 +128,8 @@ public class Wares {
                 ", memory='" + memory + '\'' +
                 ", color='" + color + '\'' +
                 ", detail='" + detail + '\'' +
+                ", score=" + score +
+                ", commentNumber=" + commentNumber +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

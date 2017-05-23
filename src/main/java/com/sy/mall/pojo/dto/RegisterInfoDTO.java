@@ -1,10 +1,12 @@
 package com.sy.mall.pojo.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by 李磊
  * on 2017/5/11.
  */
-public class RegisterInfoDTO {
+public class RegisterInfoDTO implements Serializable {
     private String username;
     private String password;
     private String confirm;

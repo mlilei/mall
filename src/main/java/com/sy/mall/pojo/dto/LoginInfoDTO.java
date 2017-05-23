@@ -1,10 +1,12 @@
 package com.sy.mall.pojo.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by 李磊
  * on 2017/5/3.
  */
-public class LoginInfoDTO {
+public class LoginInfoDTO implements Serializable{
     private String principal;
     private String credentials;
     private String captcha;

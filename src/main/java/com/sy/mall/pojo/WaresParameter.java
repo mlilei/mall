@@ -1,13 +1,11 @@
 package com.sy.mall.pojo;
 
-import java.math.BigInteger;
-
 /**
  * Created by lilei on 2017/5/23.
  */
 public class WaresParameter {
     private Integer id;
-    private BigInteger waresId;
+    private Long waresId;
     private String ParameterType;
     private String ParameterName;
     private String ParameterValue;
@@ -21,11 +19,11 @@ public class WaresParameter {
         this.id = id;
     }
 
-    public BigInteger getWaresId() {
+    public Long getWaresId() {
         return waresId;
     }
 
-    public void setWaresId(BigInteger waresId) {
+    public void setWaresId(Long waresId) {
         this.waresId = waresId;
     }
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sy.mall.mapper.WaresMapper">
+
+    <select id="listWares" parameterType="WaresQueryDTO" resultType="Wares">
+        SELECT wares_id as waresId, wares_name as waresName, image_url as imageUrl, wares_type as waresType, price,
+        memory, color, detail, score, comment_number as commentNumber, create_time as createTime, update_time as
+        updateTime
+        from wares
+        <where>
+            <if test="waresName != null and waresName != '' ">
+                AND wares_name LIKE CONCAT(CONCAT('%', #{waresName}), '%')
+            </if>
+            <if test="waresType != null">
+                AND wares_type = #{waresType}
+            </if>
+            <if test="priceLow != null">
+                AND price &gt;= #{priceLow}
+            </if>
+            <if test="priceHige != null">
+                AND price &lt;= #{priceHige}
+            </if>
+            <if test="score != null">
+                AND score &gt;= #{score}
+            </if>
+            <if test="waresId != null">
+                AND wares_id = #{waresId}
+            </if>
+        </where>
+        <if test="waresOrderEnum != null">
+            ORDER BY ${waresOrderEnum}
+        </if>
+        <if test="desc != null and desc == 1 ">
+            DESC
+        </if>
+    </select>
+
+</mapper>
