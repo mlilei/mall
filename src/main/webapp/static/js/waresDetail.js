@@ -38,6 +38,26 @@ $(function () {
                 }
                 $('.waresColor').empty().append(colorPage);
                 $('.waresDetail').empty().append(data.data.detail);
+
+                var parameter = data.data.parameter;
+                var type = '';
+                var page = '';
+                for (var i = 0; i < parameter.length;) {
+                    type = parameter[i].parameterType;
+                    page += '<div class="Ptable-item">'
+                        + ' <h3>' + type + '</h3>'
+                        + '<dl>';
+                    for (; i < parameter.length; i++) {
+                        if (parameter[i].parameterType !== type) {
+                            break;
+                        }
+                        page += '<dt>' + parameter[i].parameterName + '</dt>';
+                        page += '<dd>' + parameter[i].parameterValue + '</dd>';
+                    }
+                    page += ' </dl>'
+                        + ' </div>';
+                }
+                $('#specifications').empty().append(page);
                 click();
             }
             else {

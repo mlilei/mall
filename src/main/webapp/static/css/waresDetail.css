@@ -674,3 +674,54 @@ input.eInputError:hover {
   font-size: 12px;
   line-height: 28px;
 }
+.specifications .dt,
+.specifications .dd {
+  font-weight: 200;
+  line-height: inherit;
+}
+.specifications .cont {
+  display: block;
+  width: 1127px;
+  margin: 0 auto;
+}
+.specifications .Ptable {
+  margin: 10px 0;
+}
+.specifications .Ptable-item,
+.specifications .package-list {
+  border-top: 1px solid #eee;
+  padding: 12px 0;
+  line-height: 220%;
+  color: #999;
+  margin-top: -1px;
+  font-size: 12px;
+}
+.specifications .Ptable-item h3 {
+  width: 110px;
+  font-size: 12px;
+}
+.specifications .Ptable-item h3,
+.specifications .package-list h3 {
+  font-weight: 400;
+  text-align: right;
+  float: left;
+}
+.specifications .Ptable-item dl {
+  margin-left: 110px;
+}
+.specifications .Ptable-item dt {
+  width: 150px;
+  float: left;
+  text-align: right;
+}
+.specifications .Ptable-item dd {
+  margin-left: 190px;
+}
+.specifications .package-list h3 {
+  width: 130px;
+  font-size: 12px;
+}
+.specifications .package-list p {
+  margin-left: 155px;
+  padding-right: 50px;
+}
