@@ -1,7 +1,6 @@
 package com.sy.mall.mapper;
 
 import com.sy.mall.BaseTest;
-import com.sy.mall.common.enums.WaresOrderEnum;
 import com.sy.mall.common.util.JsonUtil;
 import com.sy.mall.pojo.Wares;
 import com.sy.mall.pojo.dto.WaresQueryDTO;
@@ -25,13 +24,13 @@ public class WaresMapperTest extends BaseTest {
     @Test
     public void test() {
         WaresQueryDTO waresQueryDTO = new WaresQueryDTO();
-        //waresQueryDTO.setWaresName("米");
+        waresQueryDTO.setWaresName("米");
         //waresQueryDTO.setScore(1);
         //waresQueryDTO.setPriceHige(new BigDecimal(1000));
         //waresQueryDTO.setPriceLow(new BigDecimal(600));
-        //waresQueryDTO.setWaresType("手机");
-        waresQueryDTO.setWaresOrderEnum(WaresOrderEnum.PRICE);
-        waresQueryDTO.setDesc(1);
+        waresQueryDTO.setWaresType("手机");
+        //waresQueryDTO.setWaresOrderEnum(WaresOrderEnum.PRICE);
+        //waresQueryDTO.setDesc(1);
         List<Wares> wares = waresMapper.listWares(waresQueryDTO);
         System.out.println(JsonUtil.toJson(wares));
     }

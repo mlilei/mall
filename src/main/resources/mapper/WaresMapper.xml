@@ -14,13 +14,13 @@
             <if test="waresType != null and waresType != '' ">
                 AND wares_type = #{waresType}
             </if>
-            <if test="priceLow != null and priceLow != '' ">
+            <if test="priceLow != null">
                 AND price &gt;= #{priceLow}
             </if>
-            <if test="priceHige != null and priceHige != '' ">
+            <if test="priceHige != null">
                 AND price &lt;= #{priceHige}
             </if>
-            <if test="score != null and score != '' ">
+            <if test="score != null">
                 AND score &gt;= #{score}
             </if>
             <if test="waresId != null">
@@ -29,10 +29,11 @@
         </where>
         <if test="waresOrderEnum != null">
             ORDER BY ${waresOrderEnum}
+            <if test="desc != null and desc == 1 ">
+                DESC
+            </if>
         </if>
-        <if test="desc != null and desc == 1 ">
-            DESC
-        </if>
+
     </select>
 
 </mapper>
