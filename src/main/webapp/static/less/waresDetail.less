@@ -1,5 +1,4 @@
 @import "config.less";
-
 .wares-detail {
   .row {
     padding: 0;
@@ -8,345 +7,345 @@
       padding: 0;
     }
   }
-}
-
-.cont-wares {
-  width: 1127px;
-  margin: 0 auto !important;
-  .wares-img {
-    width: 400px;
-    height: 500px;
-
-    img {
+  .cont-wares {
+    width: 1127px;
+    margin: 0 auto !important;
+    .wares-img {
       width: 400px;
-      height: 400px;
-      border: 1px solid @greenColor;
-    }
-    .img-child {
-      height: 70px;
-      margin-top: 10px;
-      ul {
-        li {
-          float: left;
-          padding: 0 5px;
-        }
-      }
+      height: 500px;
+
       img {
-        width: 70px;
+        width: 400px;
+        height: 400px;
+        border: 1px solid @greenColor;
+      }
+      .img-child {
         height: 70px;
-        border: none;
-        &:hover {
-          border: 1px solid @greenColor;
+        margin-top: 10px;
+        ul {
+          li {
+            float: left;
+            padding: 0 5px;
+          }
+        }
+        img {
+          width: 70px;
+          height: 70px;
+          border: none;
+          &:hover {
+            border: 1px solid @greenColor;
+          }
         }
       }
     }
-  }
-  .wares-parameter {
-    padding-left: 50px;
-    height: 600px;
-    //      position: relative;
-    .parameter-type {
-      padding: 10px;
-      padding-left: 5px;
-      width: 300px;
-      background: rgba(204, 204, 204, 0.2);
-      li {
-        padding: 5px 0;
+    .wares-parameter {
+      padding-left: 50px;
+      height: 600px;
+      //      position: relative;
+      .parameter-type {
+        padding: 10px;
+        padding-left: 5px;
+        width: 300px;
+        background: rgba(204, 204, 204, 0.2);
+        li {
+          padding: 5px 0;
+        }
+        .type-tit {
+          color: #888;
+          font-size: 16px;
+        }
+        .type-price {
+          color: @redColor;
+        }
+        .full-cut {
+          color: #fff;
+          background: @greenColor;
+          margin-right: 5px;
+        }
       }
-      .type-tit {
-        color: #888;
+      .margintop {
+        margin-top: 20px;
+      }
+      .key {
         font-size: 16px;
       }
-      .type-price {
-        color: @redColor;
-      }
-      .full-cut {
-        color: #fff;
-        background: @greenColor;
-        margin-right: 5px;
-      }
-    }
-    .margintop {
-      margin-top: 20px;
-    }
-    .key {
-      font-size: 16px;
-    }
-    .customer-service {
+      .customer-service {
 
-      .value {
-        font-size: 14px;
-        color: #888;
-        i {
-          padding-right: 5px;
-        }
-        &:hover {
-          a {
-            color: @greenColor;
+        .value {
+          font-size: 14px;
+          color: #888;
+          i {
+            padding-right: 5px;
           }
+          &:hover {
+            a {
+              color: @greenColor;
+            }
 
+          }
         }
       }
-    }
-    a {
-      text-decoration: none;
-    }
-    .specifications {
-      .cpu {
+      a {
+        text-decoration: none;
+      }
+      .specifications {
+        .cpu {
+          font-size: 14px;
+          color: #b0b0b0;
+        }
+        .value {
+          border: 1px dashed #e0e0e0;
+          opacity: 0.8;
+          text-align: center;
+          color: #b0b0b0;
+          padding: 0 20px;
+          display: inline-block;
+          height: 40px;
+          line-height: 40px;
+          margin-right: 20px;
+          margin-top: 10px;
+          &:hover {
+            border-color: @greenColor;
+            color: @greenColor; //#ff6700 橙色
+          }
+        }
+        .active {
+          border-color: @greenColor;
+          color: @greenColor;
+        }
+      }
+      .color {
+
+      }
+      .add-cart {
+        width: 100%;
+        .btn {
+          background: @greenColor;
+          border-color: @greenColor;
+          padding: 0;
+          width: 200px;
+          height: 40px;
+          line-height: 40px;
+        }
+      }
+      .prompt {
         font-size: 14px;
         color: #b0b0b0;
-      }
-      .value {
-        border: 1px dashed #e0e0e0;
-        opacity: 0.8;
-        text-align: center;
-        color: #b0b0b0;
-        padding: 0 20px;
-        display: inline-block;
-        height: 40px;
-        line-height: 40px;
-        margin-right: 20px;
         margin-top: 10px;
-        &:hover {
-          border-color: @greenColor;
-          color: @greenColor; //#ff6700 橙色
-        }
-      }
-      .active {
-        border-color: @greenColor;
-        color: @greenColor;
-      }
-    }
-    .color {
-
-    }
-    .add-cart {
-      width: 100%;
-      .btn {
-        background: @greenColor;
-        border-color: @greenColor;
-        padding: 0;
-        width: 200px;
-        height: 40px;
-        line-height: 40px;
-      }
-    }
-    .prompt {
-      font-size: 14px;
-      color: #b0b0b0;
-      margin-top: 10px;
-      i {
-        color: @greenColor;
-      }
-    }
-  }
-}
-
-.cont-detail {
-  margin-top: 20px;
-  width: 1127px;
-  margin: 0 auto;
-  border-bottom: 1px solid @greenColor;
-  background: #F7F7F7;
-  .detail-tit {
-    a {
-      text-decoration: none;
-    }
-    li {
-      float: left;
-      padding: 0 20px;
-      line-height: 40px;
-      text-align: center;
-      &:hover {
-
-        a {
+        i {
           color: @greenColor;
         }
       }
     }
-    .active {
-      background: @greenColor;
-      a {
-        color: #fff;
-
-      }
-      &:hover {
-        a {
-          color: #fff;
-        }
-      }
-
-    }
   }
-  .btn {
-    margin-top: 5px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 0;
-    background: @greenColor;
-    color: #fff;
-  }
-}
 
-.wares-introduction {
-  body {
-    font: 12px/150% tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    color: #666;
-    background: #fff;
+  .cont-detail {
+    margin-top: 20px;
     width: 1127px;
     margin: 0 auto;
-    margin-top: 30px;
+    border-bottom: 1px solid @greenColor;
+    background: #F7F7F7;
+    .detail-tit {
+      a {
+        text-decoration: none;
+      }
+      li {
+        float: left;
+        padding: 0 20px;
+        line-height: 40px;
+        text-align: center;
+        &:hover {
+
+          a {
+            color: @greenColor;
+          }
+        }
+      }
+      .active {
+        background: @greenColor;
+        a {
+          color: #fff;
+
+        }
+        &:hover {
+          a {
+            color: #fff;
+          }
+        }
+
+      }
+    }
+    .btn {
+      margin-top: 5px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 0;
+      background: @greenColor;
+      color: #fff;
+    }
   }
 
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
+  .wares-introduction {
+    body {
+      font: 12px/150% tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      color: #666;
+      background: #fff;
+      width: 1127px;
+      margin: 0 auto;
+      margin-top: 30px;
+    }
 
-  a, s {
-    text-decoration: none;
-  }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
 
-  em,
-  i,
-  u {
-    font-style: normal;
-  }
+    a, s {
+      text-decoration: none;
+    }
 
-  p {
-    margin: 0;
-    padding: 0;
-  }
+    em,
+    i,
+    u {
+      font-style: normal;
+    }
 
-  .p-parameter {
-    padding: 0 10px 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-  }
+    p {
+      margin: 0;
+      padding: 0;
+    }
 
-  .p-parameter-list {
-    padding: 20px 0 15px;
-    overflow: hidden;
-    _zoom: 1;
-  }
+    .p-parameter {
+      padding: 0 10px 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
 
-  .p-parameter-list li {
-    width: 200px;
-    padding-left: 42px;
-    float: left;
-    margin-bottom: 5px;
-  }
+    .p-parameter-list {
+      padding: 20px 0 15px;
+      overflow: hidden;
+      _zoom: 1;
+    }
 
-  .p-parameter .p-parameter-list li,
-  .p-parameter .p-parameter-list li .detail p {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+    .p-parameter-list li {
+      width: 200px;
+      padding-left: 42px;
+      float: left;
+      margin-bottom: 5px;
+    }
 
-  .p-parameter ul li .i-phone {
-    height: 31px;
-    background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param1.png);
-  }
+    .p-parameter .p-parameter-list li,
+    .p-parameter .p-parameter-list li .detail p {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
 
-  .p-parameter ul li .i-camera {
-    background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param2.png);
-  }
+    .p-parameter ul li .i-phone {
+      height: 31px;
+      background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param1.png);
+    }
 
-  .p-parameter ul li .i-cpu {
-    background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param3.png);
-  }
+    .p-parameter ul li .i-camera {
+      background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param2.png);
+    }
 
-  .p-parameter ul li i {
-    float: left;
-    width: 33px;
-    height: 33px;
-    overflow: hidden;
-    line-height: 1000px;
-    margin-top: 2px;
-    margin-left: -37px;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-  }
+    .p-parameter ul li .i-cpu {
+      background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param3.png);
+    }
 
-  .detail {
-    overflow: hidden;
-    display: inline;
-  }
+    .p-parameter ul li i {
+      float: left;
+      width: 33px;
+      height: 33px;
+      overflow: hidden;
+      line-height: 1000px;
+      margin-top: 2px;
+      margin-left: -37px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
 
-  .p-parameter-list li .detail {
-    width: 197px;
-    min-height: 0px;
-    float: right;
-  }
+    .detail {
+      overflow: hidden;
+      display: inline;
+    }
 
-  .p-parameter ul li .detail p {
-    width: 100%;
-    line-height: 18px;
-    margin-bottom: 4px;
-  }
+    .p-parameter-list li .detail {
+      width: 197px;
+      min-height: 0px;
+      float: right;
+    }
 
-  #parameter-brand {
-    padding-bottom: 0;
-  }
+    .p-parameter ul li .detail p {
+      width: 100%;
+      line-height: 18px;
+      margin-bottom: 4px;
+    }
 
-  #parameter-brand li {
-    width: 50%;
-  }
+    #parameter-brand {
+      padding-bottom: 0;
+    }
 
-  .p-parameter .p-parameter-list li a {
-    color: #5e69ad;
+    #parameter-brand li {
+      width: 50%;
+    }
 
-  }
+    .p-parameter .p-parameter-list li a {
+      color: #5e69ad;
 
-  .p-parameter .p-parameter-list .follow-brand {
-    color: #666;
-  }
+    }
 
-  .follow-brand {
-    margin-left: 5px;
-  }
+    .p-parameter .p-parameter-list .follow-brand {
+      color: #666;
+    }
 
-  .btn-def {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-    height: 23px;
-    line-height: 23px;
-    padding: 0 10px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-  }
+    .follow-brand {
+      margin-left: 5px;
+    }
 
-  .follow-brand b {
-    color: #e4393c;
-    font-size: 22px;
-    font-family: simsun;
-    vertical-align: middle;
-    padding-right: 3px;
-  }
+    .btn-def {
+      border: 1px solid #ddd;
+      background-color: #f8f8f8;
+      height: 23px;
+      line-height: 23px;
+      padding: 0 10px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+    }
 
-  .p-parameter .more-par {
-    padding-right: 20px;
-    margin-top: -5px;
-    text-align: right;
-  }
+    .follow-brand b {
+      color: #e4393c;
+      font-size: 22px;
+      font-family: simsun;
+      vertical-align: middle;
+      padding-right: 3px;
+    }
 
-  .p-parameter .more-par a {
-    color: #005aa0;
-    text-decoration: none;
-  }
+    .p-parameter .more-par {
+      padding-right: 20px;
+      margin-top: -5px;
+      text-align: right;
+    }
 
-  .cont {
-  }
+    .p-parameter .more-par a {
+      color: #005aa0;
+      text-decoration: none;
+    }
 
-  img {
-    border: 0;
-    vertical-align: middle;
-    /*width: 354px;
-    height: 600px;*/
+    .cont {
+    }
+
+    img {
+      border: 0;
+      vertical-align: middle;
+      /*width: 354px;
+      height: 600px;*/
+    }
   }
 }
+

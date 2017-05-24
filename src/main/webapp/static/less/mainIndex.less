@@ -1,62 +1,55 @@
 @import "config.less";
 
-a {
-  text-decoration: none !important;
-}
-
-a:hover {
-  color: @greenColor;
-}
-body {
-  //  background: #f5f5f5;
-}
-
-.row {
-  padding: 0;
-  margin: 0;
-}
-
-.col-md-2, .col-md-10 {
-  padding: 0;
-  margin: 0;
-}
-
 .main-index {
   margin-top: 20px;
-  //  .box-hd{
-  //      height: 58px;
-  //      line-height: 58px;
-  //      .title{
-  //          font-size: 22px;
-  //          font-weight: 200;
-  //          line-height: 58px;
-  //          color: #333;
-  //      }
-  //      .tab-list{
-  //          list-style-type: none;
-  //          font-size: 16px;
-  //          li {
-  //              display: inline-block;
-  //              margin: 0 0 0 30px;
-  //              color: #424242;
-  //              height: 43px;
-  //              border-bottom: 2px solid #f5f5f5;
-  //              border-bottom: 2px solid transparent;
-  //              -webkit-transition: border-color 0.5s;
-  //              transition: border-color 0.5s;
-  //              cursor: pointer;
-  //              float: left;
-  //          }
-  //          li:hover {
-  //              color: @greenColor;
-  //              border-bottom: 2px solid @greenColor;
-  //          }
-  //          .tab-active {
-  //              color: @greenColor;
-  //              border-bottom: 2px solid @greenColor;
-  //          }
-  //      }
-  //  }
+  a {
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: @greenColor;
+  }
+  .row {
+    padding: 0;
+    margin: 0;
+  }
+  .col-md-2, .col-md-10, .col-md-12 {
+    padding: 0;
+    margin: 0;
+  }
+  .box-hd {
+    height: 58px;
+    line-height: 58px;
+    .title {
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 58px;
+      color: #333;
+    }
+    .tab-list {
+      list-style-type: none;
+      font-size: 16px;
+      li {
+        display: inline-block;
+        margin: 0 0 0 30px;
+        color: #424242;
+        height: 43px;
+        border-bottom: 2px solid #f5f5f5;
+        border-bottom: 2px solid transparent;
+        -webkit-transition: border-color 0.5s;
+        transition: border-color 0.5s;
+        cursor: pointer;
+        float: left;
+      }
+      li:hover {
+        color: @greenColor;
+        border-bottom: 2px solid @greenColor;
+      }
+      .tab-active {
+        color: @greenColor;
+        border-bottom: 2px solid @greenColor;
+      }
+    }
+  }
   .box-bd {
     height: 614px;
     .bd-left {
@@ -87,7 +80,7 @@ body {
       }
     }
     .bd-right {
-      width: 79.333333%;
+      //width: 79.333333%;
       .brick-list {
         .brick-item {
           position: relative;

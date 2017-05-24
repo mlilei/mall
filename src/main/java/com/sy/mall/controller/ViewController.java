@@ -44,10 +44,6 @@ public class ViewController {
         return "main";
     }
 
-    @RequestMapping(value = "/mainIndex.html", method = RequestMethod.GET)
-    public String mainIndex() {
-        return "mainIndex";
-    }
 
     @RequiresAuthentication
     @RequestMapping(value = "/order.html", method = RequestMethod.GET)
