@@ -16,7 +16,7 @@ $(function () {
         },
         success: function (data) {
             if (data.code == succCode) {
-                $('#err-prompt').empty().append(data);
+                $('#err-prompt').empty().append(data.message + '--/user');
                 if (data.data.portrait == '') {
                     $('#portrait').attr('src', '../../static/img/bird.jpg');
                 }
@@ -42,13 +42,13 @@ $(function () {
                 }
             }
             else {
-                $('#err-prompt').empty().append('获取信息失败 ');
+                $('#err-prompt').empty().append('获取信息失败 --/user');
                 $('body').empty().append(data);
             }
         },
         error: function () {
             console.log('接口错误');
-            $('#err-prompt').empty().append('接口错误---加载页面');
+            $('#err-prompt').empty().append('接口错误---加载页面--/user');
         }
     });
 });

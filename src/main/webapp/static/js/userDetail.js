@@ -61,13 +61,13 @@ $(function () {
                 }
             }
             else {
-                $('#err-prompt').empty().append('获取信息失败 ');
+                $('#err-prompt').empty().append('获取信息失败 ---/user');
                 $('body').empty().append(data);
             }
         },
         error: function () {
             console.log('接口错误');
-            $('#err-prompt').empty().append('接口错误---加载页面');
+            $('#err-prompt').empty().append('接口错误---加载页面---/user');
         }
     });
 
@@ -111,12 +111,12 @@ $(function () {
                     }, 2000);
                 }
                 else {
-                    $('#err-prompt').empty().append('提交信息 ' + data.message);
+                    $('#err-prompt').empty().append('提交信息 ' + data.message + '---/user/update');
                 }
             },
             error: function () {
                 console.log('接口错误');
-                $('#err-prompt').empty().append('接口错误----按钮');
+                $('#err-prompt').empty().append('接口错误----按钮---/user/update');
             }
         });
 

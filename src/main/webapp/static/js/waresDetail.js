@@ -20,5 +20,15 @@ $(function () {
         $(".tabDemoCon>div").eq(tabDemoNum).removeClass("undis").siblings().addClass("undis");
         e.preventDefault();
     })
-
+    // +'<div class="tabDemoCon">'
+    // +'<div class="">'
+    // +'<iframe src="waresIntroduction.html" width="100%" height="600" scrolling="no" frameborder="0" name="waresIntro" id="waresIntro" onload="iFrameHeight('+"waresIntro"+')"></iframe>'
+    // +'</div>'
+    // +'<div class="undis more-cont">'
+    // +'<iframe src="specifications.html" width="100%" height="600" scrolling="no" frameborder="0" name="spec" id="spec" onload="iFrameHeight('+"spec"+')"></iframe>'
+    // +'</div>'
+    // +'<div class="undis">'
+    // +'<iframe src="customerService.html" width="100%" height="600" frameborder="0" name="custSer" id="custSer" onload="iFrameHeight('+"custSer"+')"></iframe>'
+    // +'</div>'
+    // +'</div>'
 });

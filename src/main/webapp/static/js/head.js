@@ -33,12 +33,12 @@ $(function () {
                 $('.user-a').addClass('undis');
 
                 $('#err').removeClass('undis');
-                $('#err').empty().append(data.message);
+                $('#err').empty().append(data.message + '---/user/checkLogin');
             }
         },
         error: function () {
             $('#err').removeClass('undis');
-            $('#err').empty().append('接口错误--head');
+            $('#err').empty().append('接口错误--/user/checkLogin');
         }
     });
     //退出
@@ -90,11 +90,11 @@ function logout() {
             jumpPage('/main.html');
 
             $('#err').removeClass('undis');
-            $('#err').empty().append(data.message);
+            $('#err').empty().append(data.message + '--/user/logout');
         },
         error: function () {
             $('#err').removeClass('undis');
-            $('#err').empty().append('接口错误--head');
+            $('#err').empty().append('接口错误--/user/logout');
         }
     });
 }

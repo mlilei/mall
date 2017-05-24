@@ -45,12 +45,12 @@ $(function () {
                 else {
                     changeCode();
                     console.log("data.code");
-                    $('#err-prompt').empty().append(data.message);
+                    $('#err-prompt').empty().append(data.message + '---/user/login');
                 }
             },
             error: function () {
                 console.log('接口错误');
-                $('#err-prompt').empty().append('接口错误--登录');
+                $('#err-prompt').empty().append('接口错误--登录--/user/login');
             }
         });
         $('#credentials').val('');
@@ -90,12 +90,12 @@ $(function () {
                 }
                 else {
                     changeCode();
-                    $('#err-prompt').empty().append(data.message);
+                    $('#err-prompt').empty().append(data.message + '--/user/register');
                 }
             },
             error: function () {
                 console.log('接口错误');
-                $('#err-prompt').empty().append('接口错误--注册');
+                $('#err-prompt').empty().append('接口错误--注册--/user/register');
             }
         });
         $('#password').val('');
