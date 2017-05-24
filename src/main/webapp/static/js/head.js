@@ -52,6 +52,7 @@ $(function () {
         jumpPage('/main.html');
         e.preventDefault();
     });
+
     $('.login-page').click(function (e) {
         jumpPage('/login.html');
         e.preventDefault();
@@ -72,6 +73,7 @@ $(function () {
         jumpPage('/order.html');
         e.preventDefault();
     });
+    //评价
     $('.evaluate-page').click(function (e) {
         jumpPage('/evaluate.html');
         e.preventDefault();

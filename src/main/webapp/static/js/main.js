@@ -38,19 +38,7 @@ $(function () {
         getJson(2, value);
         e.preventDefault();
     });
-    //商品详情---规格颜色点击样式
-    $('.specifications a').click(function (e) {
-        $(this).addClass('active').siblings().removeClass('active');
-        e.preventDefault();
-    })
 
-    //商品详情---商品介绍  tab切换
-    $(".tabDemo li").click(function (e) {
-        $(this).addClass("active").siblings().removeClass("active");
-        var tabDemoNum = $(".tabDemo li").index(this);
-        $(".tabDemoCon>div").eq(tabDemoNum).removeClass("undis").siblings().addClass("undis");
-        e.preventDefault();
-    })
 });
 function getJson(typeKey, typeValue) {
     var waresTypeValue = '', waresNameValue = '';
@@ -126,88 +114,10 @@ function getJson(typeKey, typeValue) {
 
 //去详情页
 function gotoDetail(id) {
-    $.ajax({
-        type: "get",
-        url: url + '/wares/getWares/' + id,
-        xhrFields: {
-            withCredentials: true //支持附带详细信息
-        },
-        success: function (data) {
-            if (data.code == succCode) {
-                $('#err-prompt').empty().append(data.message);
-
-            }
-            else {
-                $('#err-prompt').empty().append('查询失败--/wares/getWares/{id}');
-            }
-        },
-        error: function () {
-            console.log('接口错误');
-            $('#err-prompt').empty().append('接口错误---详情页加载页面--/wares/getWares/{id}');
-        }
-    });
-    var page = '<div class="container-fluid wares-detail">'
-        + '<ol class="breadcrumb">'
-        + '<li><a href="#">首页</a></li>'
-        + '<li><a href="#">飞鸟手机</a></li>'
-        + '<li class="active">bird1</li>'
-        + '</ol>'
-        + '<div class="cont-wares row">'
-        + '<div class="col-md-5 wares-img">'
-        + '<img src="../../static/img/bg3.jpg"/>'
-        + '<div class="img-child">'
-        + '<ul class="clear">'
-        + '<li><a href="javascript:;"><img src="../../static/img/bird2.jpg"/></a></li>'
-        + '<li><a href="javascript:;"><img src="../../static/img/bird3.jpg"/></a></li>'
-        + '<li><a href="javascript:;"><img src="../../static/img/bird.jpg"/></a></li>'
-        + '<li><a href="javascript:;"><img src="../../static/img/bg3.jpg"/></a></li>'
-        + '</ul>'
-        + '</div>'
-        + '</div>'
-        + '<div class="col-md-7 wares-parameter">'
-        + '<h2 id="wares-name">高通旗舰处理器飞鸟 Bird 1 超长续航</h2>'
-        + '<ul class="parameter-type margintop">'
-        + '<li><span class="type-tit">价格：</span><span class="type-price" id="price">￥2999.00</span></li>'
-        + '<li><span class="type-tit">领券：</span><span class="full-cut">满200减10</span><span class="full-cut">满500减20</span></li>'
-        + '<li><span class="type-tit">积分：</span><span class="">本次消费可获得3599积分</span></li>'
-        + '</ul>'
-        + '<div class="customer-service margintop">'
-        + '<span class="key">客服：</span>'
-        + '<span class="value"><a href="javascript:;"><i class="glyphicon glyphicon-comment"></i>联系客服</a></span>'
-        + '</div>'
-        + '<div class="specifications margintop">'
-        + '<span class="key">选择版本：</span><span class="cpu">骁龙821 性能版，最高主频 2.35GHz，Adreno 530 图形处理器</span><br/>'
-        + '<a href="#" class="value active"><span>标准版 4GB内存+64GB&nbsp;&nbsp;<span class="price">2799元</span></span></a>'
-        + '<a href="#" class="value"><span>高配版 6GB内存+128GB&nbsp;<span class="price">3299元</span></span></a>'
-        + '<a href="#" class="value"><span>全球版 6GB内存+128GB&nbsp;<span class="price">3499元</span></span></a>'
-        + '</div>'
-        + '<div class="color margintop specifications">'
-        + ' <span class="key">选择颜色：</span><br/>'
-        + ' <a href="#" class="value active"><span>亮银黑</span></a>'
-        + '<a href="#" class="value"><span>冰川银</span></a>'
-        + '<a href="#" class="value"><span>亮黑色</span></a>'
-        + '</div>'
-        + '<div class="add-cart margintop">'
-        + '<div class="btn btn-danger">加入购物车</div>'
-        + '</div>'
-        + '<div class="prompt">'
-        + '<i class="glyphicon glyphicon-ok-circle"></i>'
-        + '<span>支持7天无理由退货</span>'
-        + '</div>'
-        + '</div>'
-        + '</div>'
-        + '<div class="cont-detail clear">'
-        + '<ul class="detail-tit clear fl tabDemo">'
-        + '<li class="active"><a href="#">商品介绍</a></li>'
-        + '<li class="more-tit"><a href="#">规格与包装</a></li>'
-        + '<li><a href="#">售后保障</a></li>'
-        + '</ul>'
-        + '<div class="btn btn-default fr">加入购物车</div>'
-        + '</div>'
-        + '</div>';
-
-    $('#waresIndex').empty().append(page);
+    window.location.href = "waresDetail.html?id=" + id;
 };
+
+
 // //iframe 自动适应高度
 // function iFrameHeight(id) {
 //     var ifm = document.getElementById(id);

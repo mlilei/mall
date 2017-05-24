@@ -203,6 +203,62 @@ input.eInputError:hover {
   background: #4fb375;
   border-color: #4fb375;
 }
+.navbar .container {
+  margin-top: 0;
+}
+.navbar .container .navbar-brand {
+  margin-left: 0;
+}
+.head a {
+  text-decoration: none;
+}
+.head a:hover,
+.head a:focus {
+  text-decoration: none;
+}
+.head .nav-a {
+  padding-left: 0;
+}
+.head .nav-a a {
+  font-size: 15px;
+  color: #4fb375;
+}
+.head .nav-a a:hover {
+  color: #429762;
+}
+.head .user-a {
+  padding-left: 0;
+}
+.head .user-a a {
+  font-size: 18px;
+}
+.head .user-a a:hover {
+  color: #000000;
+}
+.head .user-a img {
+  width: 21px;
+  height: 21px;
+  border-radius: 20px;
+  background-color: #0078D7;
+  margin-right: 5px;
+}
+.main {
+  padding: 50px 0 !important;
+}
+.content-logo {
+  height: 110px;
+}
+.content-logo .logo a {
+  display: inline-block;
+  background: url(../img/bird.jpg) no-repeat center center;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+}
+.content-logo .logo img {
+  width: 200px;
+  vertical-align: super;
+}
 .wares-detail .row {
   padding: 0;
   margin: 0;
@@ -210,104 +266,86 @@ input.eInputError:hover {
 .wares-detail .row .col-md-5 {
   padding: 0;
 }
-
 .wares-detail .cont-wares {
   width: 1127px;
   margin: 0 auto !important;
 }
-
 .wares-detail .cont-wares .wares-img {
   width: 400px;
   height: 500px;
 }
-
 .wares-detail .cont-wares .wares-img img {
   width: 400px;
   height: 400px;
   border: 1px solid #4fb375;
 }
-
 .wares-detail .cont-wares .wares-img .img-child {
   height: 70px;
   margin-top: 10px;
 }
-
 .wares-detail .cont-wares .wares-img .img-child ul li {
   float: left;
   padding: 0 5px;
 }
-
+.wares-detail .cont-wares .wares-img .img-child .active {
+  border: 1px solid #4fb375;
+}
 .wares-detail .cont-wares .wares-img .img-child img {
   width: 70px;
   height: 70px;
   border: none;
 }
-
 .wares-detail .cont-wares .wares-img .img-child img:hover {
   border: 1px solid #4fb375;
 }
-
 .wares-detail .cont-wares .wares-parameter {
   padding-left: 50px;
   height: 600px;
 }
-
 .wares-detail .cont-wares .wares-parameter .parameter-type {
   padding: 10px;
   padding-left: 5px;
   width: 300px;
   background: rgba(204, 204, 204, 0.2);
 }
-
 .wares-detail .cont-wares .wares-parameter .parameter-type li {
   padding: 5px 0;
 }
-
 .wares-detail .cont-wares .wares-parameter .parameter-type .type-tit {
   color: #888;
   font-size: 16px;
 }
-
 .wares-detail .cont-wares .wares-parameter .parameter-type .type-price {
   color: #e72429;
 }
-
 .wares-detail .cont-wares .wares-parameter .parameter-type .full-cut {
   color: #fff;
   background: #4fb375;
   margin-right: 5px;
 }
-
 .wares-detail .cont-wares .wares-parameter .margintop {
   margin-top: 20px;
 }
-
 .wares-detail .cont-wares .wares-parameter .key {
   font-size: 16px;
 }
-
 .wares-detail .cont-wares .wares-parameter .customer-service .value {
   font-size: 14px;
   color: #888;
 }
-
 .wares-detail .cont-wares .wares-parameter .customer-service .value i {
   padding-right: 5px;
 }
-
 .wares-detail .cont-wares .wares-parameter .customer-service .value:hover a {
   color: #4fb375;
 }
-
 .wares-detail .cont-wares .wares-parameter a {
   text-decoration: none;
 }
-
 .wares-detail .cont-wares .wares-parameter .specifications .cpu {
   font-size: 14px;
   color: #b0b0b0;
 }
-
 .wares-detail .cont-wares .wares-parameter .specifications .value {
   border: 1px dashed #e0e0e0;
   opacity: 0.8;
@@ -320,21 +358,17 @@ input.eInputError:hover {
   margin-right: 20px;
   margin-top: 10px;
 }
-
 .wares-detail .cont-wares .wares-parameter .specifications .value:hover {
   border-color: #4fb375;
   color: #4fb375;
 }
-
 .wares-detail .cont-wares .wares-parameter .specifications .active {
   border-color: #4fb375;
   color: #4fb375;
 }
-
 .wares-detail .cont-wares .wares-parameter .add-cart {
   width: 100%;
 }
-
 .wares-detail .cont-wares .wares-parameter .add-cart .btn {
   background: #4fb375;
   border-color: #4fb375;
@@ -343,17 +377,14 @@ input.eInputError:hover {
   height: 40px;
   line-height: 40px;
 }
-
 .wares-detail .cont-wares .wares-parameter .prompt {
   font-size: 14px;
   color: #b0b0b0;
   margin-top: 10px;
 }
-
 .wares-detail .cont-wares .wares-parameter .prompt i {
   color: #4fb375;
 }
-
 .wares-detail .cont-detail {
   margin-top: 20px;
   width: 1127px;
@@ -361,34 +392,27 @@ input.eInputError:hover {
   border-bottom: 1px solid #4fb375;
   background: #F7F7F7;
 }
-
 .wares-detail .cont-detail .detail-tit a {
   text-decoration: none;
 }
-
 .wares-detail .cont-detail .detail-tit li {
   float: left;
   padding: 0 20px;
   line-height: 40px;
   text-align: center;
 }
-
 .wares-detail .cont-detail .detail-tit li:hover a {
   color: #4fb375;
 }
-
 .wares-detail .cont-detail .detail-tit .active {
   background: #4fb375;
 }
-
 .wares-detail .cont-detail .detail-tit .active a {
   color: #fff;
 }
-
 .wares-detail .cont-detail .detail-tit .active:hover a {
   color: #fff;
 }
-
 .wares-detail .cont-detail .btn {
   margin-top: 5px;
   margin-right: 5px;
@@ -397,7 +421,6 @@ input.eInputError:hover {
   background: #4fb375;
   color: #fff;
 }
-
 .wares-detail .wares-introduction body {
   font: 12px/150% tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -407,68 +430,56 @@ input.eInputError:hover {
   margin: 0 auto;
   margin-top: 30px;
 }
-
 .wares-detail .wares-introduction ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
 .wares-detail .wares-introduction a,
 .wares-detail .wares-introduction s {
   text-decoration: none;
 }
-
 .wares-detail .wares-introduction em,
 .wares-detail .wares-introduction i,
 .wares-detail .wares-introduction u {
   font-style: normal;
 }
-
 .wares-detail .wares-introduction p {
   margin: 0;
   padding: 0;
 }
-
 .wares-detail .wares-introduction .p-parameter {
   padding: 0 10px 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
-
 .wares-detail .wares-introduction .p-parameter-list {
   padding: 20px 0 15px;
   overflow: hidden;
   _zoom: 1;
 }
-
 .wares-detail .wares-introduction .p-parameter-list li {
   width: 200px;
   padding-left: 42px;
   float: left;
   margin-bottom: 5px;
 }
-
 .wares-detail .wares-introduction .p-parameter .p-parameter-list li,
 .wares-detail .wares-introduction .p-parameter .p-parameter-list li .detail p {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-
 .wares-detail .wares-introduction .p-parameter ul li .i-phone {
   height: 31px;
   background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param1.png);
 }
-
 .wares-detail .wares-introduction .p-parameter ul li .i-camera {
   background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param2.png);
 }
-
 .wares-detail .wares-introduction .p-parameter ul li .i-cpu {
   background-image: url(//static.360buyimg.com/item/default/1.0.32/components/detail/i/param3.png);
 }
-
 .wares-detail .wares-introduction .p-parameter ul li i {
   float: left;
   width: 33px;
@@ -480,44 +491,35 @@ input.eInputError:hover {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
-
 .wares-detail .wares-introduction .detail {
   overflow: hidden;
   display: inline;
 }
-
 .wares-detail .wares-introduction .p-parameter-list li .detail {
   width: 197px;
   min-height: 0px;
   float: right;
 }
-
 .wares-detail .wares-introduction .p-parameter ul li .detail p {
   width: 100%;
   line-height: 18px;
   margin-bottom: 4px;
 }
-
 .wares-detail .wares-introduction #parameter-brand {
   padding-bottom: 0;
 }
-
 .wares-detail .wares-introduction #parameter-brand li {
   width: 50%;
 }
-
 .wares-detail .wares-introduction .p-parameter .p-parameter-list li a {
   color: #5e69ad;
 }
-
 .wares-detail .wares-introduction .p-parameter .p-parameter-list .follow-brand {
   color: #666;
 }
-
 .wares-detail .wares-introduction .follow-brand {
   margin-left: 5px;
 }
-
 .wares-detail .wares-introduction .btn-def {
   border: 1px solid #ddd;
   background-color: #f8f8f8;
@@ -529,7 +531,6 @@ input.eInputError:hover {
   vertical-align: middle;
   cursor: pointer;
 }
-
 .wares-detail .wares-introduction .follow-brand b {
   color: #e4393c;
   font-size: 22px;
@@ -537,18 +538,15 @@ input.eInputError:hover {
   vertical-align: middle;
   padding-right: 3px;
 }
-
 .wares-detail .wares-introduction .p-parameter .more-par {
   padding-right: 20px;
   margin-top: -5px;
   text-align: right;
 }
-
 .wares-detail .wares-introduction .p-parameter .more-par a {
   color: #005aa0;
   text-decoration: none;
 }
-
 .wares-detail .wares-introduction img {
   border: 0;
   vertical-align: middle;
