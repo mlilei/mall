@@ -38,7 +38,9 @@ public class WaresBiz {
     public ResponseResult queryWares(WaresQueryDTO waresQueryDTO) {
         CheckParamUtil.checkQueryWaresParams(waresQueryDTO);
         List<Wares> waresList = waresService.listWares(waresQueryDTO);
-        return null;
+        ResponseResult responseResult = ResponseResult.createSuccessResult();
+        responseResult.setData(waresList);
+        return responseResult;
     }
 
     public ResponseResult getWares(Integer waresId) throws IllegalAccessException, InvocationTargetException {
