@@ -21,6 +21,7 @@
     }
   }
 }
+
 .wares-detail {
   .row {
     padding: 0;
@@ -503,3 +504,84 @@
 }
 
 //footer end
+//规格与包装
+.specifications {
+  .dt, .dd {
+    font-weight: 200;
+    line-height: inherit;
+  }
+  .cont {
+    display: block;
+    width: 1127px;
+    margin: 0 auto;
+  }
+
+  .Ptable {
+    margin: 10px 0;
+  }
+
+  .Ptable-item,
+  .package-list {
+    border-top: 1px solid #eee;
+    padding: 12px 0;
+    line-height: 220%;
+    color: #999;
+    margin-top: -1px;
+    font-size: 12px;
+  }
+
+  .Ptable-item h3 {
+    width: 110px;
+    font-size: 12px;
+  }
+
+  .Ptable-item h3,
+  .package-list h3 {
+    font-weight: 400;
+    text-align: right;
+    float: left;
+  }
+
+  .Ptable-item dl {
+    margin-left: 110px;
+  }
+
+  .Ptable-item dt {
+    width: 150px;
+    float: left;
+    text-align: right;
+  }
+
+  .Ptable-item dd {
+    margin-left: 190px;
+  }
+
+  .package-list h3 {
+    width: 130px;
+    font-size: 12px;
+  }
+
+  .package-list p {
+    margin-left: 155px;
+    padding-right: 50px;
+  }
+}
+
+//成功提示
+.success-text {
+  margin-left: -108px;
+  padding: 0 20px 0 42px;
+  min-width: 97px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 12px;
+  color: #1aba0e;
+  border-radius: 4px;
+  background: url(../img/success.png) no-repeat 18px center #fff;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 100001;
+  opacity: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

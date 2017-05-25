@@ -33,7 +33,7 @@ $(function () {
                 $('.user-a').addClass('undis');
 
                 $('#err').removeClass('undis');
-                $('#err').empty().append(data.message + '---/user/checkLogin');
+                $('#err').empty().append(data.message);
             }
         },
         error: function () {

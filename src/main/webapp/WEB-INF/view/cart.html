@@ -62,6 +62,7 @@
     </div>
     <div class='cont-tit'>
         <span>我的购物车</span>
+        <span id="err-prompt"></span>
     </div>
     <div class='cont-table table-responsive'>
         <table class='table'>
@@ -79,69 +80,38 @@
                 <th>操作</th>
             </tr>
             </thead>
-            <tbody>
-            <tr class='cart-wares'>
-                <td class='th-input'>
-                    <input type='checkbox' name='select' value='' onclick='cx()'/>
-                </td>
-                <td class='clear th-tit'>
-                    <div class='wares-img fl'>
-                        <img src='../../static/img/bird3.jpg'/>
-                    </div>
-                    <div class='wares-tit fl'>
-                        <div class='p-name'>
-                            <a href='#'>飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a>
-                        </div>
-                    </div>
-                </td>
-                <td class='th-type'>
-                    <div class='type-color'>颜色：金</div>
-                    <div class='type-size'>尺寸：2GB 16GB</div>
-                </td>
-                <td class='c-price'><span>¥</span><strong>2299.00</strong></td>
-                <td>
-                    <div class='c-amount'>
-                        <a href='#' class='nominus reduce'>-</a><input type='text' class='text' value='1'/>
-                        <a href='#' class='plus'>+</a>
-                    </div>
-                </td>
-                <td class='c-total'><span>¥</span><strong class="wares-price">2299.00</strong></td>
+            <tbody id="cartValue">
+            <!--<tr class='cart-wares'>-->
+            <!--<td class='th-input'>-->
+            <!--<input type='checkbox' name='select' value='' onclick='cx()'/>-->
+            <!--</td>-->
+            <!--<td class='clear th-tit'>-->
+            <!--<div class='wares-img fl'>-->
+            <!--<img src='../../static/img/bird3.jpg'/>-->
+            <!--</div>-->
+            <!--<div class='wares-tit fl'>-->
+            <!--<div class='p-name'>-->
+            <!--<a href='#'>飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--<td class='th-type'>-->
+            <!--<div class='type-color'>颜色：金</div>-->
+            <!--<div class='type-size'>尺寸：2GB 16GB</div>-->
+            <!--</td>-->
+            <!--<td class='c-price'><span>¥</span><strong>2299.00</strong></td>-->
+            <!--<td>-->
+            <!--<div class='c-amount'>-->
+            <!--<a href='#' class='nominus reduce'>-</a><input type='text' class='text' value='1'/>-->
+            <!--<a href='#' class='plus'>+</a>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--<td class='c-total'><span>¥</span><strong class="wares-price">2299.00</strong></td>-->
 
-                <td class='type-del'>
-                    <a href='#' data-toggle="modal" data-target="#delModal">删除</a>
-                </td>
-            </tr>
-            <tr class='cart-wares'>
-                <td class='th-input'>
-                    <input type='checkbox' name='select' value='' onclick='cx()'/>
-                </td>
-                <td class='clear th-tit'>
-                    <div class='wares-img fl'>
-                        <img src='../../static/img/bird2.jpg'/>
-                    </div>
-                    <div class='wares-tit fl'>
-                        <div class='p-name'>
-                            <a href='#'>飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a>
-                        </div>
-                    </div>
-                </td>
-                <td class='th-type'>
-                    <div class='type-color'>颜色：金</div>
-                    <div class='type-size'>尺寸：2GB 16GB</div>
-                </td>
-                <td class='c-price'><span>¥</span><strong>2299.00</strong></td>
-                <td>
-                    <div class='c-amount'>
-                        <a href='#' class='nominus reduce'>-</a><input type='text' class='text' value='1'/>
-                        <a href='#' class='plus'>+</a>
-                    </div>
-                </td>
-                <td class='c-total'><span>¥</span><strong class="wares-price">2299.00</strong></td>
-
-                <td class='type-del'>
-                    <a href='#' data-toggle="modal" data-target="#delModal">删除</a>
-                </td>
-            </tr>
+            <!--<td class='type-del'>-->
+            <!--<a href='#' data-toggle="modal" data-target="#delModal">删除</a>-->
+            <!--</td>-->
+            <!--</tr>-->
             </tbody>
         </table>
     </div>
@@ -186,49 +156,49 @@
 <script src='../../static/bootstrap/js/bootstrap.js' type='text/javascript' charset='utf-8'></script>
 <script src='../../static/js/head.js' type='text/javascript' charset='utf-8'></script>
 <script src='../../static/js/cart.js' type='text/javascript' charset='utf-8'></script>
-<script>
-    //全选
-    var cb = document.getElementsByName("select");
-    var l = cb.length;
-    //上面的全选
-    function qx() {
-        for (var i = 0; i < l - 1; i++) {
-            if (cb[0].checked) {
-                cb[i + 1].checked = true;
-            } else {
-                cb[i + 1].checked = false;
-            }
-        }
-    }
-    //下面的全选
-    function fqx() {
-        for (var i = 0; i < l - 1; i++) {
-            if (cb[l - 1].checked) {
-                cb[i].checked = true;
-            } else {
-                cb[i].checked = false;
-            }
-        }
-    }
-    //每一个单个的选择
-    function cx() {
-        for (var i = 0; i < l; i++) {
-            if (cb[0].checked) {
-                for (var i = 0; i < l; i++) {
-                    if (cb[i].checked == false) {
-                        cb[0].checked = false;
-                        cb[l - 1].checked = false;
-                    }
-                }
-            } else {
-                if (cb[i].checked == true && cb[i + 1].checked == true) {
-                    cb[0].checked = true;
-                    cb[l - 1].checked = true;
-                }
-            }
-        }
-    }
-</script>
+<!--<script>-->
+<!--//全选-->
+<!--var cb = document.getElementsByName("select");-->
+<!--var l = cb.length;-->
+<!--//上面的全选-->
+<!--function qx() {-->
+<!--for (var i = 0; i < l - 1; i++) {-->
+<!--if (cb[0].checked) {-->
+<!--cb[i + 1].checked = true;-->
+<!--} else {-->
+<!--cb[i + 1].checked = false;-->
+<!--}-->
+<!--}-->
+<!--}-->
+<!--//下面的全选-->
+<!--function fqx() {-->
+<!--for (var i = 0; i < l - 1; i++) {-->
+<!--if (cb[l - 1].checked) {-->
+<!--cb[i].checked = true;-->
+<!--} else {-->
+<!--cb[i].checked = false;-->
+<!--}-->
+<!--}-->
+<!--}-->
+<!--//每一个单个的选择-->
+<!--function cx() {-->
+<!--for (var i = 0; i < l; i++) {-->
+<!--if (cb[0].checked) {-->
+<!--for (var i = 0; i < l; i++) {-->
+<!--if (cb[i].checked == false) {-->
+<!--cb[0].checked = false;-->
+<!--cb[l - 1].checked = false;-->
+<!--}-->
+<!--}-->
+<!--} else {-->
+<!--if (cb[i].checked == true && cb[i + 1].checked == true) {-->
+<!--cb[0].checked = true;-->
+<!--cb[l - 1].checked = true;-->
+<!--}-->
+<!--}-->
+<!--}-->
+<!--}-->
+<!--</script>-->
 
 </body>
 

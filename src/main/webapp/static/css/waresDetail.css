@@ -203,6 +203,15 @@ input.eInputError:hover {
   background: #4fb375;
   border-color: #4fb375;
 }
+.err-page {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+}
+.err-page .right-img img {
+  height: 300px;
+  width: 300px;
+}
 .navbar .container {
   margin-top: 0;
 }
@@ -673,4 +682,72 @@ input.eInputError:hover {
   height: 28px;
   font-size: 12px;
   line-height: 28px;
+}
+.specifications .dt,
+.specifications .dd {
+  font-weight: 200;
+  line-height: inherit;
+}
+.specifications .cont {
+  display: block;
+  width: 1127px;
+  margin: 0 auto;
+}
+.specifications .Ptable {
+  margin: 10px 0;
+}
+.specifications .Ptable-item,
+.specifications .package-list {
+  border-top: 1px solid #eee;
+  padding: 12px 0;
+  line-height: 220%;
+  color: #999;
+  margin-top: -1px;
+  font-size: 12px;
+}
+.specifications .Ptable-item h3 {
+  width: 110px;
+  font-size: 12px;
+}
+.specifications .Ptable-item h3,
+.specifications .package-list h3 {
+  font-weight: 400;
+  text-align: right;
+  float: left;
+}
+.specifications .Ptable-item dl {
+  margin-left: 110px;
+}
+.specifications .Ptable-item dt {
+  width: 150px;
+  float: left;
+  text-align: right;
+}
+.specifications .Ptable-item dd {
+  margin-left: 190px;
+}
+.specifications .package-list h3 {
+  width: 130px;
+  font-size: 12px;
+}
+.specifications .package-list p {
+  margin-left: 155px;
+  padding-right: 50px;
+}
+.success-text {
+  margin-left: -108px;
+  padding: 0 20px 0 42px;
+  min-width: 97px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 12px;
+  color: #1aba0e;
+  border-radius: 4px;
+  background: url(../img/success.png) no-repeat 18px center #ffffff;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 100001;
+  opacity: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }

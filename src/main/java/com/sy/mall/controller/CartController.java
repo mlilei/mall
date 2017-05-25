@@ -3,8 +3,10 @@ package com.sy.mall.controller;
 import com.sy.mall.ResponseResult;
 import com.sy.mall.biz.CartBiz;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -12,7 +14,8 @@ import javax.annotation.Resource;
 /**
  * Created by lilei on 2017/5/25.
  */
-@RestController
+@Controller
+@ResponseBody
 @RequestMapping("/cart")
 public class CartController {
     @Resource
