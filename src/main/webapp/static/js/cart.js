@@ -23,7 +23,7 @@ function init() {
         },
         data: {
             pageNum: 1,
-            pageSize: 5
+            pageSize: 15
         },
         success: function (data) {
             var page = '';
@@ -39,7 +39,7 @@ function init() {
                 }
                 else {
                     for (var i = 0; i < lists.length; i++) {
-                        page += '<tr class="cart-wares" data-type="' + lists[i].id + '">'
+                        page += '<tr class="cart-wares">'
                             + '<td class="th-input">'
                             + '<input type="checkbox" name="select" value="" onclick="cx()"/>'
                             + '</td>'
@@ -49,7 +49,7 @@ function init() {
                             + '</div>'
                             + '<div class="wares-tit fl">'
                             + '<div class="p-name">'
-                            + '<a href="waresDetail.html?id=' + lists[i].id + '">' + lists[i].waresName + '</a>'
+                            + '<a href="waresDetail.html?id=' + lists[i].waresId + '">' + lists[i].waresName + '</a>'
                             + ' </div>'
                             + '</div>'
                             + '</td>'
@@ -114,14 +114,14 @@ function numOperation() {
             $num = $(this).next('input'),
             price = parseFloat($(this).parents('tr').find('.c-price strong').html()),
             $total = $(this).parents('tr').find('.c-total strong');
-        if (num == 2) {
+        if (num == 1) {
             // $(this).attr('class', 'nominus');
             $(this).addClass('nominus');
             $(this).removeClass('minus');
         }
         if (num > 1) {
             num--;
-        } else num = 1;
+        } else num = 0;
         $num.val(num);
         $total.html((price * num).toFixed(2));
 
@@ -205,7 +205,7 @@ function numOperation() {
 
 
 }
-
+//加号接口
 function addOneCart(id) {
     $.ajax({
         type: "post",
@@ -231,7 +231,7 @@ function addOneCart(id) {
         }
     });
 }
-
+//减号接口
 function deleteOneCart(id) {
     $.ajax({
         type: "post",
@@ -245,7 +245,7 @@ function deleteOneCart(id) {
         success: function (data) {
             if (data.code == succCode) {
                 $('#err-prompt').empty().append(data.message);
-
+                init();
             }
             else {
                 $('#err-prompt').empty().append('查询失败--/cart/removeOne');

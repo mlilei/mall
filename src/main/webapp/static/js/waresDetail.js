@@ -95,7 +95,7 @@ $(function () {
                 withCredentials: true //支持附带详细信息
             },
             data: {
-                cartId: id,
+                waresId: id,
                 color: colorValue,
                 memory: memoryValue
             },
@@ -120,6 +120,7 @@ $(function () {
                 }
                 else {
                     $('#err-prompt').empty().append('查询失败--/cart/addWares');
+                    window.location.href = "login.html";
                 }
             },
             error: function () {
