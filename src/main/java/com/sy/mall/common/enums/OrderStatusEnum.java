@@ -9,8 +9,9 @@ import java.util.Map;
  * on 2017/5/15.
  */
 public enum OrderStatusEnum {
-    UNPAID(0, "未支付"),
-    PAID(1, "已支付");
+    BE_PERFECTED(0, "待完善"),
+    UNPAID(1, "未支付"),
+    PAID(2, "已支付");
 
     OrderStatusEnum(int code, String message) {
         this.code = code;

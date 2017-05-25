@@ -13,8 +13,8 @@ import java.util.Date;
 public class Order {
     @Id
     private BigInteger orderId;
-    private Integer orderNum;
-    private BigInteger userId;
+    private String orderNum;
+    private Long userId;
     private OrderStatusEnum status;
     private String address;
     private String addressee;
@@ -31,19 +31,19 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Integer getOrderNum() {
+    public String getOrderNum() {
         return orderNum;
     }
 
-    public void setOrderNum(Integer orderNum) {
+    public void setOrderNum(String orderNum) {
         this.orderNum = orderNum;
     }
 
-    public BigInteger getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(BigInteger userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

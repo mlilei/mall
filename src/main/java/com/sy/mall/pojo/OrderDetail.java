@@ -2,7 +2,6 @@ package com.sy.mall.pojo;
 
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -10,27 +9,45 @@ import java.util.Date;
  */
 public class OrderDetail {
     @Id
-    private BigInteger orderDetailId;
-    private BigInteger waresId;
+    private Long orderDetailId;
+    private Long waresId;
     private Integer waresNum;
     private BigDecimal waresPrice;
-    private BigInteger orderId;
+    private String waresColor;
+    private String waresMemory;
+    private String orderNumber;
     private Date createTime;
     private Date updateTime;
 
-    public BigInteger getOrderDetailId() {
+    public String getWaresColor() {
+        return waresColor;
+    }
+
+    public void setWaresColor(String waresColor) {
+        this.waresColor = waresColor;
+    }
+
+    public String getWaresMemory() {
+        return waresMemory;
+    }
+
+    public void setWaresMemory(String waresMemory) {
+        this.waresMemory = waresMemory;
+    }
+
+    public Long getOrderDetailId() {
         return orderDetailId;
     }
 
-    public void setOrderDetailId(BigInteger orderDetailId) {
+    public void setOrderDetailId(Long orderDetailId) {
         this.orderDetailId = orderDetailId;
     }
 
-    public BigInteger getWaresId() {
+    public Long getWaresId() {
         return waresId;
     }
 
-    public void setWaresId(BigInteger waresId) {
+    public void setWaresId(Long waresId) {
         this.waresId = waresId;
     }
 
@@ -50,12 +67,12 @@ public class OrderDetail {
         this.waresPrice = waresPrice;
     }
 
-    public BigInteger getOrderId() {
-        return orderId;
+    public String getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setOrderId(BigInteger orderId) {
-        this.orderId = orderId;
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public Date getCreateTime() {
@@ -81,7 +98,9 @@ public class OrderDetail {
                 ", waresId=" + waresId +
                 ", waresNum=" + waresNum +
                 ", waresPrice=" + waresPrice +
-                ", orderId=" + orderId +
+                ", waresColor='" + waresColor + '\'' +
+                ", waresMemory='" + waresMemory + '\'' +
+                ", orderNumber=" + orderNumber +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';
