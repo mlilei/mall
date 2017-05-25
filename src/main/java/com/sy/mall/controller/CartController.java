@@ -19,7 +19,7 @@ public class CartController {
     @Resource
     private CartBiz cartBiz;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseResult get(int pageNum, int pageSize) {
         return cartBiz.queryCart(pageNum, pageSize);
     }
