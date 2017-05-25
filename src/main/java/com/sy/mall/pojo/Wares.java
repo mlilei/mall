@@ -1,14 +1,15 @@
 package com.sy.mall.pojo;
 
+import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 
 /**
  * Created by acm on 2017/5/15.
  */
 public class Wares {
-    private BigInteger waresId;
+    @Id
+    private Long waresId;
     private String waresName;
     private String imageUrl;
     private String waresType;
@@ -37,11 +38,11 @@ public class Wares {
         this.commentNumber = commentNumber;
     }
 
-    public BigInteger getWaresId() {
+    public Long getWaresId() {
         return waresId;
     }
 
-    public void setWaresId(BigInteger waresId) {
+    public void setWaresId(Long waresId) {
         this.waresId = waresId;
     }
 
