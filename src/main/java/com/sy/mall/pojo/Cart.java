@@ -2,35 +2,36 @@ package com.sy.mall.pojo;
 
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 
 /**
- * Created by acm on 2017/5/15.
+ * Created by lilei on 2017/5/25.
  */
-public class OrderDetail {
+public class Cart {
     @Id
-    private BigInteger orderDetailId;
-    private BigInteger waresId;
+    private Long id;
+    private Long waresId;
     private Integer waresNum;
     private BigDecimal waresPrice;
-    private BigInteger orderId;
+    private Long userId;
+    private String memory;
+    private String color;
     private Date createTime;
     private Date updateTime;
 
-    public BigInteger getOrderDetailId() {
-        return orderDetailId;
+    public Long getId() {
+        return id;
     }
 
-    public void setOrderDetailId(BigInteger orderDetailId) {
-        this.orderDetailId = orderDetailId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public BigInteger getWaresId() {
+    public Long getWaresId() {
         return waresId;
     }
 
-    public void setWaresId(BigInteger waresId) {
+    public void setWaresId(Long waresId) {
         this.waresId = waresId;
     }
 
@@ -50,12 +51,28 @@ public class OrderDetail {
         this.waresPrice = waresPrice;
     }
 
-    public BigInteger getOrderId() {
-        return orderId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setOrderId(BigInteger orderId) {
-        this.orderId = orderId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getMemory() {
+        return memory;
+    }
+
+    public void setMemory(String memory) {
+        this.memory = memory;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public Date getCreateTime() {
@@ -76,12 +93,14 @@ public class OrderDetail {
 
     @Override
     public String toString() {
-        return "OrderDetail{" +
-                "orderDetailId=" + orderDetailId +
+        return "Cart{" +
+                "id=" + id +
                 ", waresId=" + waresId +
                 ", waresNum=" + waresNum +
                 ", waresPrice=" + waresPrice +
-                ", orderId=" + orderId +
+                ", userId=" + userId +
+                ", memory='" + memory + '\'' +
+                ", color='" + color + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

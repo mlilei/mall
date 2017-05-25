@@ -2,6 +2,7 @@ package com.sy.mall.pojo;
 
 import com.sy.mall.common.enums.OrderStatusEnum;
 
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Date;
  * Created by acm on 2017/5/15.
  */
 public class Order {
+    @Id
     private BigInteger orderId;
     private Integer orderNum;
     private BigInteger userId;

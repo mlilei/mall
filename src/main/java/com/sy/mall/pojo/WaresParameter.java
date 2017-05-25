@@ -1,9 +1,12 @@
 package com.sy.mall.pojo;
 
+import javax.persistence.Id;
+
 /**
  * Created by lilei on 2017/5/23.
  */
 public class WaresParameter {
+    @Id
     private Integer id;
     private Long waresId;
     private String ParameterType;
