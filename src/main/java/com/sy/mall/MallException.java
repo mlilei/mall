@@ -20,6 +20,7 @@ public class MallException extends RuntimeException {
     public static final MallException USERNAME_EXISTS = new MallException("400", "用户名已存在");
     public static final MallException LOGIN_ERROR = new MallException("401", "登录失败");
 
+
     /**
      * 前缀为：5，第三方异常
      */

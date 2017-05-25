@@ -19,4 +19,28 @@ public class CartBizTest extends BaseTest {
         ResponseResult result = cartBiz.queryCart(1, 2);
         System.out.println(JsonUtil.toJson(result));
     }
+
+    @Test
+    public void testadd() {
+        ResponseResult responseResult = cartBiz.addWares(3, "亮黑色", "32GB");
+        System.out.println(JsonUtil.toJson(responseResult));
+    }
+
+    @Test
+    public void addOne() {
+        ResponseResult responseResult = cartBiz.addOne(4);
+        System.out.println(JsonUtil.toJson(responseResult));
+    }
+
+    @Test
+    public void removeWares() {
+        ResponseResult responseResult = cartBiz.removeWares(4);
+        System.out.println(JsonUtil.toJson(responseResult));
+    }
+
+    @Test
+    public void removeOne() {
+        ResponseResult responseResult = cartBiz.removeOne(1);
+        System.out.println(JsonUtil.toJson(responseResult));
+    }
 }

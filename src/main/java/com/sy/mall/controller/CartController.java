@@ -35,22 +35,19 @@ public class CartController {
 
     @RequiresAuthentication
     @RequestMapping(value = "/addOne", method = RequestMethod.POST)
-    public ResponseResult addOne() {
-
-        return null;
+    public ResponseResult addOne(Integer cartId) {
+        return cartBiz.addOne(cartId);
     }
 
     @RequiresAuthentication
     @RequestMapping(value = "/removeWares", method = RequestMethod.POST)
-    public ResponseResult removeWares() {
-
-        return null;
+    public ResponseResult removeWares(Integer cartId) {
+        return cartBiz.removeWares(cartId);
     }
 
     @RequiresAuthentication
     @RequestMapping(value = "/removeOne", method = RequestMethod.POST)
-    public ResponseResult removeOne() {
-
-        return null;
+    public ResponseResult removeOne(Integer cartId) {
+        return cartBiz.removeOne(cartId);
     }
 }
