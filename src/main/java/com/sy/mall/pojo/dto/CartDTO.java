@@ -9,6 +9,7 @@ public class CartDTO {
     private Long id;
     private String imageUrl;
     private String waresName;
+    private Long waresId;
     private String color;
     private String memory;
     //单价
