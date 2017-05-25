@@ -77,6 +77,32 @@ $(function () {
         $(".tabDemoCon>div").eq(tabDemoNum).removeClass("undis").siblings().addClass("undis");
         e.preventDefault();
     });
+
+    /*
+     * 成功提示
+     * Author:zmj
+     * Date:2017-4-21
+     */
+    var timer1 = '';
+    $('.addCart').click(function (e) {
+        var html = '<p class="success-text">加入购物车成功</p>';
+        var _this = $(this);
+        timer1 = setTimeout(function () {
+            $(_this).removeClass('success_tip');
+            clearTimeout(timer1);
+            $('body').append(html);
+            $('.success-text').animate({
+                'top': '50px',
+                'opacity': '1'
+            }, 700, function () {
+                $('.success-text').fadeOut(800, function () {
+                    $(_this).addClass('success_tip');
+                    $('.success-text').remove();
+                });
+            });
+        }, 500);
+        e.preventDefault();
+    });
 });
 function click() {
     //规格颜色点击样式

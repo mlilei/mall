@@ -725,3 +725,20 @@ input.eInputError:hover {
   margin-left: 155px;
   padding-right: 50px;
 }
+.success-text {
+  margin-left: -108px;
+  padding: 0 20px 0 42px;
+  min-width: 97px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 12px;
+  color: #1aba0e;
+  border-radius: 4px;
+  background: url(../img/success.png) no-repeat 18px center #ffffff;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 100001;
+  opacity: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
