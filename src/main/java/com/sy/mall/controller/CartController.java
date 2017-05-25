@@ -25,9 +25,9 @@ public class CartController {
     }
 
     @RequestMapping(value = "/addWares", method = RequestMethod.POST)
-    public ResponseResult addWares() {
+    public ResponseResult addWares(Long waresId, String color, String memory) {
 
-        return null;
+        return cartBiz.addWares(waresId, color, memory);
     }
 
     @RequestMapping(value = "/addOne", method = RequestMethod.POST)
