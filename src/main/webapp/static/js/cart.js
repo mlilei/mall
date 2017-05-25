@@ -10,6 +10,11 @@ var selects = document.getElementsByName("select");
 var selectsLength = selects.length;
 $(function () {
     // numOperation();
+    init();
+
+});
+//初始化
+function init() {
     $.ajax({
         type: "get",
         url: url + '/cart',
@@ -34,7 +39,7 @@ $(function () {
                 }
                 else {
                     for (var i = 0; i < lists.length; i++) {
-                        page += '<tr class="cart-wares">'
+                        page += '<tr class="cart-wares" data-type="' + lists[i].id + '">'
                             + '<td class="th-input">'
                             + '<input type="checkbox" name="select" value="" onclick="cx()"/>'
                             + '</td>'
@@ -44,7 +49,7 @@ $(function () {
                             + '</div>'
                             + '<div class="wares-tit fl">'
                             + '<div class="p-name">'
-                            + '<a href="#">' + lists[i].waresName + '</a>'
+                            + '<a href="waresDetail.html?id=' + lists[i].id + '">' + lists[i].waresName + '</a>'
                             + ' </div>'
                             + '</div>'
                             + '</td>'
@@ -78,8 +83,7 @@ $(function () {
             $('#err-prompt').empty().append('接口错误---购物车页加载页面--/cart');
         }
     });
-
-});
+}
 //加减删除操作
 function numOperation() {
     selects = document.getElementsByName("select");
@@ -213,9 +217,9 @@ function addOneCart(id) {
             cartId: id
         },
         success: function (data) {
-            data;
             if (data.code == succCode) {
                 $('#err-prompt').empty().append(data.message);
+
             }
             else {
                 $('#err-prompt').empty().append('查询失败--/cart/addOne');
@@ -239,9 +243,9 @@ function deleteOneCart(id) {
             cartId: id
         },
         success: function (data) {
-            data;
             if (data.code == succCode) {
                 $('#err-prompt').empty().append(data.message);
+
             }
             else {
                 $('#err-prompt').empty().append('查询失败--/cart/removeOne');
@@ -269,9 +273,9 @@ function deleteCart(id) {
                 cartId: id
             },
             success: function (data) {
-                data;
                 if (data.code == succCode) {
                     $('#err-prompt').empty().append(data.message);
+                    init();
                 }
                 else {
                     $('#err-prompt').empty().append('查询失败--/cart/removeWares');

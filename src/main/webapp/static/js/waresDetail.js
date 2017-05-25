@@ -4,7 +4,7 @@
  * */
 //接口地址
 var url = '';
-//var succCode = 1;
+var succCode = 200;
 
 $(function () {
 
