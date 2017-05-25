@@ -85,22 +85,48 @@ $(function () {
      */
     var timer1 = '';
     $('.addCart').click(function (e) {
-        var html = '<p class="success-text">加入购物车成功</p>';
-        var _this = $(this);
-        timer1 = setTimeout(function () {
-            $(_this).removeClass('success_tip');
-            clearTimeout(timer1);
-            $('body').append(html);
-            $('.success-text').animate({
-                'top': '50px',
-                'opacity': '1'
-            }, 700, function () {
-                $('.success-text').fadeOut(800, function () {
-                    $(_this).addClass('success_tip');
-                    $('.success-text').remove();
-                });
-            });
-        }, 500);
+
+        var memoryValue = $('.waresMemory .active span').html();
+        var colorValue = $('.waresColor .active span').html();
+        $.ajax({
+            type: "post",
+            url: url + '/cart/addWares',
+            xhrFields: {
+                withCredentials: true //支持附带详细信息
+            },
+            data: {
+                cartId: id,
+                color: colorValue,
+                memory: memoryValue
+            },
+            success: function (data) {
+                if (data.code == succCode) {
+                    var html = '<p class="success-text">加入购物车成功</p>';
+                    var _this = $(this);
+                    timer1 = setTimeout(function () {
+                        $(_this).removeClass('success_tip');
+                        clearTimeout(timer1);
+                        $('body').append(html);
+                        $('.success-text').animate({
+                            'top': '50px',
+                            'opacity': '1'
+                        }, 700, function () {
+                            $('.success-text').fadeOut(800, function () {
+                                $(_this).addClass('success_tip');
+                                $('.success-text').remove();
+                            });
+                        });
+                    }, 500);
+                }
+                else {
+                    $('#err-prompt').empty().append('查询失败--/cart/addWares');
+                }
+            },
+            error: function () {
+                console.log('接口错误');
+                $('#err-prompt').empty().append('接口错误--/cart/addWares');
+            }
+        });
         e.preventDefault();
     });
 });

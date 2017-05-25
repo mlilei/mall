@@ -203,6 +203,15 @@ input.eInputError:hover {
   background: #4fb375;
   border-color: #4fb375;
 }
+.err-page {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+}
+.err-page .right-img img {
+  height: 300px;
+  width: 300px;
+}
 .navbar .container {
   margin-top: 0;
 }
