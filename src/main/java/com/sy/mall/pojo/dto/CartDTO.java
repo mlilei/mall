@@ -18,6 +18,14 @@ public class CartDTO {
     private BigDecimal waresPrice;
     private Integer waresNum;
 
+    public Long getWaresId() {
+        return waresId;
+    }
+
+    public void setWaresId(Long waresId) {
+        this.waresId = waresId;
+    }
+
     public Long getId() {
         return id;
     }
@@ -88,6 +96,7 @@ public class CartDTO {
                 "id=" + id +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", waresName='" + waresName + '\'' +
+                ", waresId=" + waresId +
                 ", color='" + color + '\'' +
                 ", memory='" + memory + '\'' +
                 ", price=" + price +
