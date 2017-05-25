@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,5 +53,24 @@ public class CartService extends BaseService<Cart> {
 
 
         return pageInfo;
+    }
+
+    public int addWares(Long userId, Wares wares, String color, String memory) {
+        Cart cart = new Cart();
+        cart.setUserId(userId);
+        cart.setWaresId(wares.getWaresId());
+        cart.setColor(color);
+        cart.setMemory(memory);
+        Cart cartA = cartMapper.selectOne(cart);
+        if (cartA == null) {
+            cart.setWaresNum(1);
+            cart.setWaresPrice(wares.getPrice());
+            cart.setCreateTime(new Date());
+            cartMapper.insert(cart);
+        } else {
+
+        }
+
+        return 0;
     }
 }

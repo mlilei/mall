@@ -1,10 +1,13 @@
 package com.sy.mall.biz;
 
 import com.github.pagehelper.PageInfo;
+import com.google.common.base.Preconditions;
 import com.sy.mall.ResponseResult;
 import com.sy.mall.Service.CartService;
+import com.sy.mall.Service.WaresService;
 import com.sy.mall.common.util.ShiroUtils;
 import com.sy.mall.pojo.User;
+import com.sy.mall.pojo.Wares;
 import com.sy.mall.pojo.dto.CartDTO;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +20,11 @@ import javax.annotation.Resource;
 public class CartBiz {
     @Resource
     private CartService cartService;
+    @Resource
+    private WaresService waresService;
 
-    public ResponseResult queryCart(int pageNum, int pageSize) {
+    public ResponseResult queryCart(Integer pageNum, int pageSize) {
+        Preconditions.checkNotNull(pageNum);
         User u = (User) ShiroUtils.getSubject().getPrincipal();
         PageInfo<CartDTO> pageInfo = cartService.queryCart(u.getUserId(), pageNum, pageSize);
         ResponseResult result = ResponseResult.createSuccessResult();
@@ -27,9 +33,10 @@ public class CartBiz {
     }
 
 
-    public ResponseResult addWares(Long waresId, String color, String memory) {
-
-
-        return null;
+    public ResponseResult addWares(Integer waresId, String color, String memory) {
+        User u = (User) ShiroUtils.getSubject().getPrincipal();
+        Wares wares = waresService.getWares(waresId);
+        cartService.addWares(u.getUserId(), wares, color, memory);
+        return ResponseResult.createSuccessResult();
     }
 }
