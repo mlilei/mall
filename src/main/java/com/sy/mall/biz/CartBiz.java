@@ -23,7 +23,7 @@ public class CartBiz {
     @Resource
     private WaresService waresService;
 
-    public ResponseResult queryCart(Integer pageNum, int pageSize) {
+    public ResponseResult queryCart(Integer pageNum, Integer pageSize) {
         Preconditions.checkNotNull(pageNum);
         User u = (User) ShiroUtils.getSubject().getPrincipal();
         PageInfo<CartDTO> pageInfo = cartService.queryCart(u.getUserId(), pageNum, pageSize);
@@ -37,6 +37,24 @@ public class CartBiz {
         User u = (User) ShiroUtils.getSubject().getPrincipal();
         Wares wares = waresService.getWares(waresId);
         cartService.addWares(u.getUserId(), wares, color, memory);
+        return ResponseResult.createSuccessResult();
+    }
+
+    public ResponseResult addOne(Integer cartId) {
+        User u = (User) ShiroUtils.getSubject().getPrincipal();
+        cartService.addOne(u, cartId);
+        return ResponseResult.createSuccessResult();
+    }
+
+    public ResponseResult removeWares(Integer cartId) {
+        User u = (User) ShiroUtils.getSubject().getPrincipal();
+        cartService.removeWares(u, cartId);
+        return ResponseResult.createSuccessResult();
+    }
+
+    public ResponseResult removeOne(Integer cartId) {
+        User u = (User) ShiroUtils.getSubject().getPrincipal();
+        cartService.removeOne(u, cartId);
         return ResponseResult.createSuccessResult();
     }
 }

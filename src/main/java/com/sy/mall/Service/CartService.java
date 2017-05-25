@@ -2,9 +2,11 @@ package com.sy.mall.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.sy.mall.MallException;
 import com.sy.mall.mapper.CartMapper;
 import com.sy.mall.mapper.WaresMapper;
 import com.sy.mall.pojo.Cart;
+import com.sy.mall.pojo.User;
 import com.sy.mall.pojo.Wares;
 import com.sy.mall.pojo.dto.CartDTO;
 import org.slf4j.Logger;
@@ -66,11 +68,51 @@ public class CartService extends BaseService<Cart> {
             cart.setWaresNum(1);
             cart.setWaresPrice(wares.getPrice());
             cart.setCreateTime(new Date());
-            cartMapper.insert(cart);
+            return cartMapper.insert(cart);
         } else {
-
+            cartA.setWaresNum(cartA.getWaresNum() + 1);
+            cartA.setWaresPrice(wares.getPrice().add(cartA.getWaresPrice()));
+            return cartMapper.updateByPrimaryKey(cartA);
         }
+    }
 
-        return 0;
+    public int addOne(User user, Integer cartId) {
+        Cart cart = cartMapper.selectByPrimaryKey(new Long(cartId));
+        if (!cart.getUserId().equals(user.getUserId())) {
+            LOGGER.error("增加的商品不属于该用户：{}", user);
+            throw MallException.ERROR;
+        }
+        Wares wares = waresMapper.selectByPrimaryKey(cart.getWaresId());
+        cart.setWaresNum(cart.getWaresNum() + 1);
+        cart.setWaresPrice(cart.getWaresPrice().add(wares.getPrice()));
+        return cartMapper.updateByPrimaryKey(cart);
+    }
+
+    public int removeWares(User user, Integer cartId) {
+        Cart cart = cartMapper.selectByPrimaryKey(new Long(cartId));
+        if (user.getUserId().equals(cart.getUserId())) {
+            return cartMapper.delete(cart);
+        }
+        throw MallException.ERROR;
+    }
+
+    public int removeOne(User user, Integer cartId) {
+        Cart cart = cartMapper.selectByPrimaryKey(new Long(cartId));
+        if (!cart.getUserId().equals(user.getUserId())) {
+            LOGGER.error("增加的商品不属于该用户：{}", user);
+            throw MallException.ERROR;
+        }
+        if (cart.getWaresNum() < 1) {
+            LOGGER.error("购物车内不存在该商品:{}", cart);
+            throw MallException.ERROR;
+        }
+        Wares wares = waresMapper.selectByPrimaryKey(cart.getWaresId());
+        cart.setWaresNum(cart.getWaresNum() - 1);
+        cart.setWaresPrice(cart.getWaresPrice().subtract(wares.getPrice()));
+        if (0 == cart.getWaresNum()) {
+            return cartMapper.deleteByPrimaryKey(new Long(cartId));
+        } else {
+            return cartMapper.updateByPrimaryKey(cart);
+        }
     }
 }
