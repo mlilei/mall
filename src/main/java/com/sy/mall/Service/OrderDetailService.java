@@ -65,7 +65,9 @@ public class OrderDetailService extends BaseService<OrderDetail> {
             WaresExhibitionDTO waresExhibitionDTO = new WaresExhibitionDTO();
             BeanUtils.copyProperties(detail, waresExhibitionDTO);
             Wares wares = waresMapper.selectByPrimaryKey(detail.getWaresId());
-            BeanUtils.copyProperties(wares, waresExhibitionDTO);
+            //BeanUtils.copyProperties(wares, waresExhibitionDTO);
+            waresExhibitionDTO.setWaresName(wares.getWaresName());
+            waresExhibitionDTO.setImageUrl(wares.getImageUrl());
             var.getWaresList().add(waresExhibitionDTO);
         }
     }
