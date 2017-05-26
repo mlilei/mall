@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Ordering;
 import com.sy.mall.MallException;
 import com.sy.mall.common.enums.OrderStatusEnum;
+import com.sy.mall.mapper.CartMapper;
 import com.sy.mall.mapper.OrderDetailMapper;
 import com.sy.mall.mapper.OrderMapper;
 import com.sy.mall.pojo.Order;
@@ -42,6 +43,8 @@ public class OrderService extends BaseService<Order> {
     private OrderDetailService orderDetailService;
     @Resource
     private OrderDetailMapper orderDetailMapper;
+    @Resource
+    private CartMapper cartMapper;
 
     @Resource
     public void setMapper(OrderMapper orderMapper) {
@@ -71,6 +74,9 @@ public class OrderService extends BaseService<Order> {
         order.setStatus(OrderStatusEnum.BE_PERFECTED);
         order.setCreateTime(new Date());
         BigDecimal amount = orderDetailService.batchSave(orderNumber, cartIdList);
+        for (Integer id : cartIdList) {
+            cartMapper.deleteByPrimaryKey(new Long(id));
+        }
         order.setAmount(amount);
         return orderMapper.insertSelective(order);
     }
