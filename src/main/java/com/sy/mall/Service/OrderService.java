@@ -125,7 +125,7 @@ public class OrderService extends BaseService<Order> {
         order.setOrderNum(orderNumber);
         order = orderMapper.selectOne(order);
         if (order.getStatus().equals(OrderStatusEnum.PAID)) {
-            throw new MallException("订单已完成");
+            throw new MallException("订单已完成,无法删除");
         }
         if (!order.getUserId().equals(user.getUserId())) {
             throw new MallException("要删除的订单不属于该用户");

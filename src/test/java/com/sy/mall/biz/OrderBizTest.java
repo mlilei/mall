@@ -43,4 +43,10 @@ public class OrderBizTest extends BaseTest {
         ResponseResult query = orderBiz.query(1, 5);
         System.out.println(JsonUtil.toJson(query));
     }
+
+    @Test
+    public void delete() {
+        ResponseResult r = orderBiz.delete("0526-0215-0005");
+        System.out.println(JsonUtil.toJson(r));
+    }
 }
