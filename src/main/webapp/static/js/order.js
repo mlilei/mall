@@ -8,6 +8,7 @@ var url = '';
 var succCode = 200;
 
 $(function () {
+    init();
     //筛选条件
     $('#select-btn span').click(function (e) {
         $(this).addClass('undis').siblings().removeClass('undis');
@@ -29,7 +30,7 @@ $(function () {
     });
 
     // $('.all-order #succPage').removeClass('undis').empty().append(succPage());
-    init();
+
 
     $('.pending-payment').empty().append(errPage('待付款'));
     $('.shipment-pending').empty().append(errPage('待发货'));
@@ -50,7 +51,7 @@ function init() {
         },
         data: {
             pageNum: 1,
-            pageSize: 35
+            pageSize: 15
         },
         success: function (data) {
             var page = '';
@@ -79,6 +80,7 @@ function init() {
                         + '</tr>'
                         + '</thead>';
                     for (var i = 0; i < lists.length; i++) {
+                        // alert(lists[i].orderNum);
                         page += '<tr class="sep-row"><td colspan="7"></td></tr>'
                             + '<tbody class="order-list">'
                             + '<tr class="tr-th">'
@@ -99,6 +101,7 @@ function init() {
                             + '<a href="#" data-toggle="modal" data-target="#delModal" onclick="delOrder(' + lists[i].orderNum + ')"><i class="glyphicon glyphicon-trash"></i></a>'
                             + '</td>'
                             + '</tr>';
+                        // delOrder(lists[i].orderNum );
                         page += '<tr class="tr-bd">'
                             + '<td class="bd-img-tit clear">'
                             + '<div class="img fl">'
@@ -106,7 +109,7 @@ function init() {
                             + '</div>'
                             + '<div class="tit fl">'
                             + '<p><a href="#">' + lists[i].waresList[0].waresName + '</a></p>'
-                            + '<p><span>颜色：</span><span>金</span>  <span>内存：</span><span>2GB 16GB</span></p>'
+                            + '<p><span>颜色：</span><span>' + lists[i].waresList[0].color + '</span>  <span>内存：</span><span>' + lists[i].waresList[0].memory + '</span></p>'
                             + '<p>'
                             + '<a href="#" class="seven a-type" title="七天退换"></a>'
                             + '<a href="#" class="describe a-type" title="如实描述"></a>'
@@ -142,7 +145,7 @@ function init() {
                                 + '</div>'
                                 + '<div class="tit fl">'
                                 + '<p><a href="#">' + lists[i].waresList[j].waresName + '</a></p>'
-                                + '<p><span>颜色：</span><span>金</span>  <span>内存：</span><span>2GB 16GB</span></p>'
+                                + '<p><span>颜色：</span><span>' + lists[i].waresList[j].color + '</span>  <span>内存：</span><span>' + lists[i].waresList[j].memory + '</span></p>'
                                 + '<p>'
                                 + '<a href="#" class="seven a-type" title="七天退换"></a>'
                                 + '<a href="#" class="describe a-type" title="如实描述"></a>'
@@ -185,10 +188,11 @@ function init() {
     });
 }
 
-function delOrder(id) {
+function delOrder(orderNum) {
+    alert(orderNum);
     //删除订单
     $('#del').click(function (e) {
-        alert(id);
+        alert(orderNum);
         $.ajax({
             type: "post",
             url: url + '/order/delete',
@@ -196,7 +200,7 @@ function delOrder(id) {
                 withCredentials: true //支持附带详细信息
             },
             data: {
-                orderNumber: id,
+                orderNumber: orderNum,
             },
             success: function (data) {
                 if (data.code == succCode) {

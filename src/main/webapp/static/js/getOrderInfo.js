@@ -42,7 +42,6 @@ $(function () {
                 if (data.code == succCode) {
                     $('#err-prompt').empty().append(data.message + ' ' + data.data);
                     orderNumber = data.data;
-                    init(ids);
                 }
                 else {
                     $('#err-prompt').empty().append('查询失败--/order/perfected');
@@ -73,7 +72,6 @@ $(function () {
                 if (data.code == succCode) {
                     $('#err-prompt').empty().append(data.message + ' ' + data.data);
                     orderNumber = data.data;
-                    init(ids);
                     timer1 = setTimeout(function () {
                         $(_this).removeClass('success_tip');
                         clearTimeout(timer1);
@@ -88,7 +86,6 @@ $(function () {
                             });
                         });
                     }, 500);
-
                 }
                 else {
                     $('#err-prompt').empty().append('查询失败--/order/payment');
