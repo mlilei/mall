@@ -2,15 +2,19 @@ package com.sy.mall.Service;
 
 import com.sy.mall.mapper.CartMapper;
 import com.sy.mall.mapper.OrderDetailMapper;
+import com.sy.mall.mapper.WaresMapper;
 import com.sy.mall.pojo.Cart;
 import com.sy.mall.pojo.OrderDetail;
+import com.sy.mall.pojo.Wares;
+import com.sy.mall.pojo.dto.OrderExhibitionDTO;
+import com.sy.mall.pojo.dto.WaresExhibitionDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +30,8 @@ public class OrderDetailService extends BaseService<OrderDetail> {
     private OrderDetailMapper orderDetailMapper;
     @Resource
     private CartMapper cartMapper;
+    @Resource
+    private WaresMapper waresMapper;
 
     @Resource
     public void setMapper(OrderDetailMapper orderDetailMapper) {
@@ -49,5 +55,18 @@ public class OrderDetailService extends BaseService<OrderDetail> {
             amount = amount.add(cart.getWaresPrice());
         }
         return amount;
+    }
+
+    public void queryOrderDetail(String orderNum, OrderExhibitionDTO var) {
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setOrderNumber(orderNum);
+        List<OrderDetail> orderDetailList = orderDetailMapper.select(orderDetail);
+        for (OrderDetail detail : orderDetailList) {
+            WaresExhibitionDTO waresExhibitionDTO = new WaresExhibitionDTO();
+            BeanUtils.copyProperties(detail, waresExhibitionDTO);
+            Wares wares = waresMapper.selectByPrimaryKey(detail.getWaresId());
+            BeanUtils.copyProperties(wares, waresExhibitionDTO);
+            var.getWaresList().add(waresExhibitionDTO);
+        }
     }
 }

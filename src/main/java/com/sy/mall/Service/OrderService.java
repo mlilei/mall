@@ -1,22 +1,29 @@
 package com.sy.mall.Service;
 
-import com.sun.xml.internal.bind.v2.TODO;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Ordering;
 import com.sy.mall.MallException;
 import com.sy.mall.common.enums.OrderStatusEnum;
 import com.sy.mall.mapper.OrderDetailMapper;
 import com.sy.mall.mapper.OrderMapper;
 import com.sy.mall.pojo.Order;
+import com.sy.mall.pojo.OrderDetail;
 import com.sy.mall.pojo.User;
+import com.sy.mall.pojo.dto.OrderExhibitionDTO;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by 李磊
@@ -25,6 +32,7 @@ import java.util.Random;
 @Service
 public class OrderService extends BaseService<Order> {
     private static final String SOURCE_WEB = "0";
+    private static final String MMDD = "MMdd";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderService.class);
 
@@ -32,6 +40,8 @@ public class OrderService extends BaseService<Order> {
     private OrderMapper orderMapper;
     @Resource
     private OrderDetailService orderDetailService;
+    @Resource
+    private OrderDetailMapper orderDetailMapper;
 
     @Resource
     public void setMapper(OrderMapper orderMapper) {
@@ -47,12 +57,13 @@ public class OrderService extends BaseService<Order> {
         DateTime dateTime = new DateTime();
         String time = String.valueOf(System.currentTimeMillis());
         String userId = "0000" + String.valueOf(user.getUserId());
-        return "" + dateTime.getMonthOfYear() + dateTime.dayOfMonth() + "-" +
+        return dateTime.toString(MMDD) + "-" +
                 SOURCE_WEB + time.substring(time.length() - 3) + "-" +
                 userId.substring(userId.length() - 4);
 
     }
 
+    @Transactional
     public int create(String orderNumber, User user, List<Integer> cartIdList) {
         Order order = new Order();
         order.setOrderNum(orderNumber);
@@ -87,11 +98,41 @@ public class OrderService extends BaseService<Order> {
         return orderMapper.updateByPrimaryKey(order);
     }
 
-    // TODO: 2017/5/26  
-    public void query(User user) {
+    public PageInfo query(User user, Integer pageNum, Integer pageSize) {
         Order order = new Order();
         order.setUserId(user.getUserId());
-        List<Order> select = orderMapper.select(order);
+        PageHelper.startPage(pageNum, pageSize);
+        List<Order> orderList = orderMapper.select(order);
+        PageInfo pageInfo = new PageInfo<>(orderList);
 
+        Ordering<Order> orderOrdering = Ordering.natural().reverse().onResultOf(Order::getCreateTime);
+        Collections.sort(orderList, orderOrdering);
+
+        List<OrderExhibitionDTO> data = new ArrayList<>();
+        for (Order var : orderList) {
+            OrderExhibitionDTO var1 = new OrderExhibitionDTO();
+            BeanUtils.copyProperties(var, var1);
+            orderDetailService.queryOrderDetail(var.getOrderNum(), var1);
+            data.add(var1);
+        }
+        pageInfo.setList(data);
+        return pageInfo;
+    }
+
+    @Transactional
+    public int delete(User user, String orderNumber) {
+        Order order = new Order();
+        order.setOrderNum(orderNumber);
+        order = orderMapper.selectOne(order);
+        if (order.getStatus().equals(OrderStatusEnum.PAID)) {
+            throw new MallException("订单已完成");
+        }
+        if (!order.getUserId().equals(user.getUserId())) {
+            throw new MallException("要删除的订单不属于该用户");
+        }
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setOrderNumber(orderNumber);
+        orderDetailMapper.delete(orderDetail);
+        return orderMapper.delete(order);
     }
 }

@@ -1,36 +1,26 @@
-package com.sy.mall.pojo;
+package com.sy.mall.pojo.dto;
 
 import com.sy.mall.common.enums.OrderStatusEnum;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
- * Created by acm on 2017/5/15.
+ * Created by lilei on 2017/5/26.
  */
-@Table(name = "tbl_order")
-public class Order {
-    @Id
-    private Long orderId;
+public class OrderExhibitionDTO {
     private String orderNum;
-    private Long userId;
+    private BigDecimal amount;
     private OrderStatusEnum status;
     private String address;
     private String addressee;
     private String phone;
-    private BigDecimal amount;
     private Date createTime;
-    private Date updateTime;
 
-    public Long getOrderId() {
-        return orderId;
-    }
+    private List<WaresExhibitionDTO> waresList = new ArrayList<>();
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
 
     public String getOrderNum() {
         return orderNum;
@@ -40,12 +30,12 @@ public class Order {
         this.orderNum = orderNum;
     }
 
-    public Long getUserId() {
-        return userId;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 
     public OrderStatusEnum getStatus() {
@@ -54,6 +44,22 @@ public class Order {
 
     public void setStatus(OrderStatusEnum status) {
         this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public List<WaresExhibitionDTO> getWaresList() {
+        return waresList;
+    }
+
+    public void setWaresList(List<WaresExhibitionDTO> waresList) {
+        this.waresList = waresList;
     }
 
     public String getAddress() {
@@ -80,43 +86,17 @@ public class Order {
         this.phone = phone;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     @Override
     public String toString() {
-        return "Order{" +
-                "orderId=" + orderId +
-                ", orderNum='" + orderNum + '\'' +
-                ", userId=" + userId +
+        return "OrderExhibitionDTO{" +
+                "orderNum='" + orderNum + '\'' +
+                ", amount=" + amount +
                 ", status=" + status +
                 ", address='" + address + '\'' +
                 ", addressee='" + addressee + '\'' +
                 ", phone='" + phone + '\'' +
-                ", amount=" + amount +
                 ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
+                ", waresList=" + waresList +
                 '}';
     }
 }

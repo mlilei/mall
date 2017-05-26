@@ -22,6 +22,8 @@
                      javaType="com.sy.mall.common.enums.GenderEnum"/>
         <typeHandler handler="com.sy.mall.common.typeHandler.CodeEnumTypeHandler"
                      javaType="com.sy.mall.common.enums.UserStatusEnum"/>
+        <typeHandler handler="com.sy.mall.common.typeHandler.CodeEnumTypeHandler"
+                     javaType="com.sy.mall.common.enums.OrderStatusEnum"/>
     </typeHandlers>
 
     <!--Continue going here -->

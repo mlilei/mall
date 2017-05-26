@@ -6,6 +6,7 @@ import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -24,8 +25,11 @@ public class OrderController {
 
     @RequiresAuthentication
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseResult query() {
-        return orderBiz.query();
+    public ResponseResult query(@RequestParam Integer pageNum, Integer pageSize) {
+        if (pageSize == null) {
+            pageSize = 20;
+        }
+        return orderBiz.query(pageNum, pageSize);
     }
 
     @RequiresAuthentication
@@ -45,5 +49,12 @@ public class OrderController {
     public ResponseResult payment(String orderNumber) {
         return orderBiz.payment(orderNumber);
     }
+
+    @RequiresAuthentication
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public ResponseResult delete(String orderNumber) {
+        return orderBiz.delete(orderNumber);
+    }
+
 
 }

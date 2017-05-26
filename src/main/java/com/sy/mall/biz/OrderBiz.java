@@ -1,5 +1,6 @@
 package com.sy.mall.biz;
 
+import com.github.pagehelper.PageInfo;
 import com.sy.mall.ResponseResult;
 import com.sy.mall.Service.OrderService;
 import com.sy.mall.common.util.ShiroUtils;
@@ -18,6 +19,8 @@ public class OrderBiz {
     private OrderService orderService;
 
     public ResponseResult create(List<Integer> cartIdList) {
+        //User user = new User();
+        //user.setUserId(5L);
         User user = (User) ShiroUtils.getSubject().getPrincipal();
         String orderNumber = OrderService.createOrderNumber(user);
         orderService.create(orderNumber, user, cartIdList);
@@ -39,9 +42,21 @@ public class OrderBiz {
         return ResponseResult.createSuccessResult();
     }
 
-    public ResponseResult query() {
+    public ResponseResult query(Integer pageNum, Integer pageSize) {
+        //User user = new User();
+        //user.setUserId(5L);
         User user = (User) ShiroUtils.getSubject().getPrincipal();
-        orderService.query(user);
+        PageInfo pageInfo = orderService.query(user, pageNum, pageSize);
+        ResponseResult result = ResponseResult.createSuccessResult();
+        result.setData(pageInfo);
+        return result;
+    }
 
+    public ResponseResult delete(String orderNumber) {
+        //User user = new User();
+        //user.setUserId(5L);
+        User user = (User) ShiroUtils.getSubject().getPrincipal();
+        orderService.delete(user, orderNumber);
+        return ResponseResult.createSuccessResult();
     }
 }
