@@ -135,4 +135,19 @@ public class OrderService extends BaseService<Order> {
         orderDetailMapper.delete(orderDetail);
         return orderMapper.delete(order);
     }
+
+    public OrderExhibitionDTO queryOne(User user, String orderNum) {
+        Order order = new Order();
+        order.setUserId(user.getUserId());
+        order.setOrderNum(orderNum);
+        order = orderMapper.selectOne(order);
+        if (null == order) {
+            LOGGER.error("订单不存在:{},{}", user, orderNum);
+            throw new MallException("订单不存在");
+        }
+        OrderExhibitionDTO orderExhibitionDTO = new OrderExhibitionDTO();
+        BeanUtils.copyProperties(order, orderExhibitionDTO);
+        orderDetailService.queryOrderDetail(orderNum, orderExhibitionDTO);
+        return orderExhibitionDTO;
+    }
 }

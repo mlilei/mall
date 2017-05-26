@@ -36,6 +36,12 @@ public class OrderController {
     }
 
     @RequiresAuthentication
+    @RequestMapping(value = "/{orderNum}", method = RequestMethod.GET)
+    public ResponseResult query(String orderNum) {
+        return orderBiz.queryOne(orderNum);
+    }
+
+    @RequiresAuthentication
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ResponseResult create(Integer[] cartIdList) {
         return orderBiz.create(Arrays.asList(cartIdList));

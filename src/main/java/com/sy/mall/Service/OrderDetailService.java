@@ -70,6 +70,7 @@ public class OrderDetailService extends BaseService<OrderDetail> {
             waresExhibitionDTO.setImageUrl(wares.getImageUrl());
             waresExhibitionDTO.setColor(detail.getWaresColor());
             waresExhibitionDTO.setMemory(detail.getWaresMemory());
+            waresExhibitionDTO.setPrice(detail.getWaresPrice());
             var.getWaresList().add(waresExhibitionDTO);
         }
     }

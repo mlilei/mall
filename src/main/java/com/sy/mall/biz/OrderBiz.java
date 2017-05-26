@@ -5,6 +5,7 @@ import com.sy.mall.ResponseResult;
 import com.sy.mall.Service.OrderService;
 import com.sy.mall.common.util.ShiroUtils;
 import com.sy.mall.pojo.User;
+import com.sy.mall.pojo.dto.OrderExhibitionDTO;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -58,5 +59,15 @@ public class OrderBiz {
         User user = (User) ShiroUtils.getSubject().getPrincipal();
         orderService.delete(user, orderNumber);
         return ResponseResult.createSuccessResult();
+    }
+
+    public ResponseResult queryOne(String orderNum) {
+        User user = (User) ShiroUtils.getSubject().getPrincipal();
+        //User user = new User();
+        //user.setUserId(5L);
+        OrderExhibitionDTO orderExhibitionDTO = orderService.queryOne(user, orderNum);
+        ResponseResult result = ResponseResult.createSuccessResult();
+        result.setData(orderExhibitionDTO);
+        return result;
     }
 }
