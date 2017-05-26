@@ -68,6 +68,8 @@ public class OrderDetailService extends BaseService<OrderDetail> {
             //BeanUtils.copyProperties(wares, waresExhibitionDTO);
             waresExhibitionDTO.setWaresName(wares.getWaresName());
             waresExhibitionDTO.setImageUrl(wares.getImageUrl());
+            waresExhibitionDTO.setColor(detail.getWaresColor());
+            waresExhibitionDTO.setMemory(detail.getWaresMemory());
             var.getWaresList().add(waresExhibitionDTO);
         }
     }

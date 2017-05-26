@@ -8,10 +8,27 @@ var succCode = 200;
 
 var selects = document.getElementsByName("select");
 var selectsLength = selects.length;
+
 $(function () {
     // numOperation();
     init();
 
+    $('#goToOrder').click(function (e) {
+        var selects = document.getElementsByClassName("cart-wares");
+        var l = selects.length;
+        var ids = new Array();
+        ;
+        for (var i = 0; i < l; i++) {
+            if ($(selects[i]).is('.active')) {
+                var id = $(selects[i]).attr('data-type');
+                // alert(id);
+                ids.push(id);
+            }
+        }
+        // alert(ids);
+        window.location.href = "getOrderInfo.html?ids=" + ids;
+        e.preventDefault();
+    });
 });
 //初始化
 function init() {
@@ -39,7 +56,7 @@ function init() {
                 }
                 else {
                     for (var i = 0; i < lists.length; i++) {
-                        page += '<tr class="cart-wares">'
+                        page += '<tr class="cart-wares" data-type="' + lists[i].id + '">'
                             + '<td class="th-input">'
                             + '<input type="checkbox" name="select" value="" onclick="cx()"/>'
                             + '</td>'
@@ -317,7 +334,7 @@ function fqx() {
 function cx() {
     for (var i = 0; i < selectsLength; i++) {
         if (selects[0].checked) {
-            for (var i = 0; i < l; i++) {
+            for (var i = 0; i < selectsLength; i++) {
                 if (selects[i].checked == false) {
                     selects[0].checked = false;
                     selects[selectsLength - 1].checked = false;

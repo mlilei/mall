@@ -36,11 +36,7 @@ $(function () {
     $('.goods-to-be-received').empty().append(errPage('待收货'));
     $('.pending-evaluation').empty().append(errPage('待评价'));
 
-    //删除订单
-    $('#del').click(function (e) {
-        $(this).parents('.order-list').addClass('undis');
-        e.preventDefault();
-    });
+
 	
 	
 });
@@ -54,7 +50,7 @@ function init() {
         },
         data: {
             pageNum: 1,
-            pageSize: 15
+            pageSize: 35
         },
         success: function (data) {
             var page = '';
@@ -100,7 +96,7 @@ function init() {
                             + '<td colspan="1">'
                             + '</td>'
                             + '<td colspan="3" class="text-right del-order">'
-                            + '<a href="#" data-toggle="modal" data-target="#delModal"><i class="glyphicon glyphicon-trash"></i></a>'
+                            + '<a href="#" data-toggle="modal" data-target="#delModal" onclick="delOrder(' + lists[i].orderNum + ')"><i class="glyphicon glyphicon-trash"></i></a>'
                             + '</td>'
                             + '</tr>';
                         page += '<tr class="tr-bd">'
@@ -187,6 +183,40 @@ function init() {
             $('#err-prompt').empty().append('接口错误---订单页加载页面--/order');
         }
     });
+}
+
+function delOrder(id) {
+    //删除订单
+    $('#del').click(function (e) {
+        alert(id);
+        $.ajax({
+            type: "post",
+            url: url + '/order/delete',
+            xhrFields: {
+                withCredentials: true //支持附带详细信息
+            },
+            data: {
+                orderNumber: id,
+            },
+            success: function (data) {
+                if (data.code == succCode) {
+                    $('#err-prompt').empty().append(data.message + ' ' + data.data);
+                    orderNumber = data.data;
+                    init();
+                    $(this).parents('.order-list').addClass('undis');
+                }
+                else {
+                    $('#err-prompt').empty().append('查询失败--/order/delete');
+                }
+            },
+            error: function () {
+                console.log('接口错误');
+                $('#err-prompt').empty().append('接口错误---订单结算页加载页面--/order/delete');
+            }
+        });
+        e.preventDefault();
+    });
+
 }
 
 //<!--404页面-->

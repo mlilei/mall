@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,8 +37,8 @@ public class OrderController {
 
     @RequiresAuthentication
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ResponseResult create(List<Integer> cartIdList) {
-        return orderBiz.create(cartIdList);
+    public ResponseResult create(Integer[] cartIdList) {
+        return orderBiz.create(Arrays.asList(cartIdList));
     }
 
     @RequiresAuthentication

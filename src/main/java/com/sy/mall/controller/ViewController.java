@@ -44,6 +44,10 @@ public class ViewController {
         return "main";
     }
 
+    @RequestMapping(value = "/getOrderInfo.html", method = RequestMethod.GET)
+    public String getOrderInfo() {
+        return "getOrderInfo";
+    }
 
     @RequiresAuthentication
     @RequestMapping(value = "/order.html", method = RequestMethod.GET)

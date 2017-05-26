@@ -59,6 +59,7 @@
         </div>
     </div>
     <div class="cont-tit">填写并核对订单信息</div>
+    <div id="err-prompt"></div>
     <div class="cont-box clear">
         <div class="box-tit clear">
             <h3 class="fl">收货人信息</h3>
@@ -78,29 +79,38 @@
             <div class="payment active">货到付款</div>
         </div>
         <div class="hr"></div>
-        <div class="box-tit clear">
+        <div class="box-tit">
+            <h3>订单号：<span class="orderNumber"></span></h3>
+        </div>
+        <div class="box-tit clear undis">
             <h3 class="fl">送货清单</h3>
             <div class="fr"><a href="#" class="cart-page">返回修改购物车</a></div>
         </div>
-        <div class="box-cont">
+        <div class="box-cont undis">
             <div class="goods-tit">
                 <h4>商家：飞鸟自营</h4>
             </div>
-            <div class="goods-item clear">
-                <div class="p-img fl">
-                    <a href="#"><img src="../../static/img/bird1.jpg" alt=""></a>
+            <div id="goodsList">
+                <div class="goods-item clear">
+                    <div class="p-img fl">
+                        <a href="#"><img src="../../static/img/bird1.jpg" alt=""></a>
+                    </div>
+                    <div class="p-name fl">
+                        <p><a href="#">飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a></p>
+                        <p><span>颜色：</span><span>金</span><span>尺寸：</span><span>2GB 16GB</span></p>
+                        <p><a href="#" class="seven a-type" title="七天退换"></a><span class="seven-span">支持7天无理由退货</span>
+                        </p>
+                    </div>
+                    <div class="p-price fl">
+                        <span class="red-price p-price-price">￥<span>999.00</span></span>
+                        <span class="p-price-num">x<span>1</span></span>
+                        <span class="p-price-text">有货</span>
+                    </div>
                 </div>
-                <div class="p-name fl">
-                    <p><a href="#">飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a></p>
-                    <p><span>颜色：</span><span>金</span><span>尺寸：</span><span>2GB 16GB</span></p>
-                    <p><a href="#" class="seven a-type" title="七天退换"></a><span class="seven-span">支持7天无理由退货</span></p>
-                </div>
-                <div class="p-price fl">
-                    <span class="red-price p-price-price">￥<span>999.00</span></span>
-                    <span class="p-price-num">x<span>1</span></span>
-                    <span class="p-price-text">有货</span>
-                </div>
+
             </div>
+
+
         </div>
     </div>
     <div class="total">
@@ -114,7 +124,7 @@
         </div>
     </div>
     <div class="btn-box clear">
-        <button class="fr">提交订单</button>
+        <button class="fr" id="orderBtn">提交订单</button>
     </div>
 </div>
 
