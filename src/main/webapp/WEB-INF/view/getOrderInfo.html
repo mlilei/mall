@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='../../static/img/icon.ico' rel='shortcut icon'/>
+    <title>飞鸟商城-订单结算页</title>
+    <link rel="stylesheet" type="text/css" href="../../static/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../static/css/getOrderInfo.css"/>
+</head>
+<body>
+<nav class="navbar navbar-default head  navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand main-page" href="#">欢迎来到飞鸟商城</a>
+            <div class="navbar-brand nav-a">
+                <a href="#" class="login-page">请登录 </a>
+                <a href="#" class="register-page">免费注册</a>
+            </div>
+            <div class="navbar-brand user-a undis">
+                <a href="#" class="user-page">
+                    <img src="../../static/img/bird.jpg"/>
+                    <span id="head-username">
+								张三
+							</span>
+                </a>
+            </div>
+            <span class="undis navbar-brand" id="err"></span>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="user-page">个人信息</a>
+                </li>
+                <li>
+                    <a href="#" class="cart-page">我的购物车</a>
+                </li>
+                <li>
+                    <a href="#" class="order-page">我的订单</a>
+                </li>
+                <li>
+                    <a href="#" id="logout">退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container get-order-info">
+    <div class='cont-logo row'>
+        <div class='logo col-md-4'>
+            <a href='#' class="main-page"></a>
+            <img src='../../static/img/logo-tit2.jpg'/>
+        </div>
+    </div>
+    <div class="cont-tit">填写并核对订单信息</div>
+    <div class="cont-box clear">
+        <div class="box-tit clear">
+            <h3 class="fl">收货人信息</h3>
+            <div class="fr"><a href="#" data-toggle="modal" data-target="#addressModal">新增收货地址</a></div>
+        </div>
+        <div class="box-cont">
+            <span class="orderUser">李磊</span>
+            <span class="orderAddress">北京 昌平区 六环以内 回龙观村东区</span>
+            <span class="orderPhone">171****7607</span>
+            <a href="#" data-toggle="modal" data-target="#addressModal">编辑</a>
+        </div>
+        <div class="hr"></div>
+        <div class="box-tit">
+            <h3>支付方式</h3>
+        </div>
+        <div class="box-cont">
+            <div class="payment active">货到付款</div>
+        </div>
+        <div class="hr"></div>
+        <div class="box-tit clear">
+            <h3 class="fl">送货清单</h3>
+            <div class="fr"><a href="#" class="cart-page">返回修改购物车</a></div>
+        </div>
+        <div class="box-cont">
+            <div class="goods-tit">
+                <h4>商家：飞鸟自营</h4>
+            </div>
+            <div class="goods-item clear">
+                <div class="p-img fl">
+                    <a href="#"><img src="../../static/img/bird1.jpg" alt=""></a>
+                </div>
+                <div class="p-name fl">
+                    <p><a href="#">飞鸟 肥鸟 4X 全网通版 2GB+16GB 香槟金 移动联通电信4G手机</a></p>
+                    <p><span>颜色：</span><span>金</span><span>尺寸：</span><span>2GB 16GB</span></p>
+                    <p><a href="#" class="seven a-type" title="七天退换"></a><span class="seven-span">支持7天无理由退货</span></p>
+                </div>
+                <div class="p-price fl">
+                    <span class="red-price p-price-price">￥<span>999.00</span></span>
+                    <span class="p-price-num">x<span>1</span></span>
+                    <span class="p-price-text">有货</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="total">
+        <div class="total-price">
+            <span>应付金额：</span>
+            <span class="red-price">￥<span>999.00</span></span>
+        </div>
+        <div class="total-address">
+            <span class="mr20">配送至： <span class="orderAddress">北京 昌平区 六环以内   回龙观村东区</span></span>
+            <span>收货人：<span class="orderUser">李磊</span> <span class="orderPhone">171****7607</span></span>
+        </div>
+    </div>
+    <div class="btn-box clear">
+        <button class="fr">提交订单</button>
+    </div>
+</div>
+
+
+<!--新增收货地址-->
+<div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-left" id="myModalLabel">新增收货人信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="form-group clear">
+                        <label for="address" class="col-sm-3">地址：</label>
+                        <div class="col-sm-9 clear">
+                            <input type="text" class="form-control" id="address" placeholder="收货地址">
+                        </div>
+                    </div>
+                    <div class="form-group clear">
+                        <label for="addressee" class="col-sm-3">收货人：</label>
+                        <div class="col-sm-9 clear">
+                            <input type="text" class="form-control" id="addressee" placeholder="收货人">
+                        </div>
+                    </div>
+                    <div class="form-group clear">
+                        <label for="phone" class="col-sm-3">手机号码：</label>
+                        <div class="col-sm-9 clear">
+                            <input type="text" class="form-control" id="phone" placeholder="手机号码">
+                        </div>
+                    </div>
+                    <div class="form-group clear">
+                        <div class="col-sm-offset-2 col-sm-3">
+                            <button type="submit" class="btn btn-default form-submit" id="addressBtn"
+                                    data-dismiss="modal">提交
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='../../static/js/lib/jquery2.1.4.min.js' type='text/javascript' charset='utf-8'></script>
+<script src='../../static/bootstrap/js/bootstrap.js' type='text/javascript' charset='utf-8'></script>
+<script src='../../static/js/head.js' type='text/javascript' charset='utf-8'></script>
+<script src="../../static/js/getOrderInfo.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
