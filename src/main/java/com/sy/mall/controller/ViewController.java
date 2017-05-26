@@ -61,10 +61,6 @@ public class ViewController {
         return "register";
     }
 
-    @RequestMapping(value = "/specifications.html", method = RequestMethod.GET)
-    public String specifications() {
-        return "specifications";
-    }
 
     @RequiresAuthentication
     @RequestMapping(value = "/user.html", method = RequestMethod.GET)
@@ -88,8 +84,5 @@ public class ViewController {
         return "evaluate";
     }
 
-    @RequestMapping(value = "/waresIntroduction.html", method = RequestMethod.GET)
-    public String waresIntroduction() {
-        return "waresIntroduction";
-    }
+
 }
