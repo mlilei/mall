@@ -60,8 +60,8 @@ public class OrderService extends BaseService<Order> {
         DateTime dateTime = new DateTime();
         String time = String.valueOf(System.currentTimeMillis());
         String userId = "0000" + String.valueOf(user.getUserId());
-        return dateTime.toString(MMDD) + "" +
-                SOURCE_WEB + time.substring(time.length() - 3) + "" +
+        return dateTime.toString(MMDD) + "-" +
+                SOURCE_WEB + time.substring(time.length() - 3) + "-" +
                 userId.substring(userId.length() - 4);
 
     }

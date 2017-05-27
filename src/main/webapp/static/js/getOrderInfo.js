@@ -86,6 +86,9 @@ $(function () {
                             });
                         });
                     }, 500);
+                    setTimeout(function () {
+                        window.location.href = 'order.html';
+                    }, 600);
                 }
                 else {
                     $('#err-prompt').empty().append('查询失败--/order/payment');

@@ -212,6 +212,11 @@ input.eInputError:hover {
   height: 300px;
   width: 300px;
 }
+#err-prompt {
+  color: #e72429;
+  font-size: 20px;
+  text-align: center;
+}
 .navbar .container {
   margin-top: 0;
 }
@@ -488,4 +493,9 @@ a {
 .err-page .right-img img {
   height: 200px;
   width: 200px;
+}
+#err-prompt {
+  color: #e72429;
+  font-size: 20px;
+  text-align: center;
 }

@@ -81,7 +81,9 @@ function init() {
                         + '</thead>';
                     for (var i = 0; i < lists.length; i++) {
                         // alert(lists[i].orderNum);
-                        page += '<tr class="sep-row"><td colspan="7"></td></tr>'
+                        // var orNum = lists[i].orderNum;
+                        // alert(typeof orNum);
+                        page += '<tr class="sep-row"><td colspan="7"><div id="err-prompt"></div></td></tr>'
                             + '<tbody class="order-list">'
                             + '<tr class="tr-th">'
                             + '<td colspan="1">'
@@ -98,10 +100,10 @@ function init() {
                             + '<td colspan="1">'
                             + '</td>'
                             + '<td colspan="3" class="text-right del-order">'
-                            + '<a href="#" data-toggle="modal" data-target="#delModal" onclick="delOrder(' + lists[i].orderNum + ')"><i class="glyphicon glyphicon-trash"></i></a>'
+                            + '<a href="#" data-toggle="modal" data-target="#delModal" class="delOrder" data-id="' + lists[i].orderNum + '"><i class="glyphicon glyphicon-trash"></i></a>'
                             + '</td>'
                             + '</tr>';
-                        // delOrder(lists[i].orderNum );
+
                         page += '<tr class="tr-bd">'
                             + '<td class="bd-img-tit clear">'
                             + '<div class="img fl">'
@@ -127,14 +129,27 @@ function init() {
                             + '<span><a href="#">申请售后</a></span>'
                             + '</td>'
                             + '<td>'
-                            + '<p><span>￥</span><span>2299.00</span></p>'
+                            + '<p><span>￥</span><span>' + lists[i].waresList[0].price + '</span></p>'
                             + '<p class="grey-price">（含运费：￥<span>0.00</span>）</p>'
                             + '</td>'
-                            + '<td>'
-                            + '<span>交易成功</span>'
+                            + '<td>';
+                        var status = '', statusBtn = '';
+                        if (lists[i].status == 'UNPAID') {
+                            status = '待支付';
+                            statusBtn = '去支付';
+                        }
+                        else if (lists[i].status == 'BE_PERFECTED') {
+                            status = '待完善';
+                            statusBtn = '去完善';
+                        }
+                        else if (lists[i].status == 'PAID') {
+                            status = '已完成';
+                            statusBtn = '去评价';
+                        }
+                        page += '<span>' + status + '</span>'
                             + '</td>'
                             + '<td>'
-                            + '<button class="btn btn-default evaluate-page">评价</button>'
+                            + '<button class="btn btn-default evaluate-page operationBtn" data-id="' + lists[i].orderNum + '" data-date="' + lists[i].status + '">' + statusBtn + '</button>'
                             + '</td>'
                             + '</tr>';
                         for (var j = 1; j < lists[i].waresList.length; j++) {
@@ -175,6 +190,26 @@ function init() {
                         + '</table>'
                         + '</div>';
                     $('.all-order #succPage').removeClass('undis').empty().append(page);
+                    $('.delOrder').click(function (e) {
+                        delOrder($(this).attr('data-id'));
+                        e.preventDefault();
+                    });
+                    //交易操作的按钮去向
+                    $('.operationBtn').click(function (e) {
+                        var ids = $(this).attr('data-id');
+                        var date = $(this).attr('data-date');
+                        alert(ids + ' ' + date);
+                        if (date == 'UNPAID') {
+                            $('#err-prompt').empty().append('还没做，待完善');
+                        }
+                        else if (date == 'BE_PERFECTED') {
+                            $('#err-prompt').empty().append('还没做，待完善');
+                        }
+                        else if (date == 'PAID') {
+                            $('#err-prompt').empty().append('还没做，待完善');
+                        }
+                        e.preventDefault();
+                    });
                 }
             }
             else {
@@ -189,10 +224,10 @@ function init() {
 }
 
 function delOrder(orderNum) {
-    alert(orderNum);
+    // alert(orderNum);
     //删除订单
     $('#del').click(function (e) {
-        alert(orderNum);
+        // alert(orderNum);
         $.ajax({
             type: "post",
             url: url + '/order/delete',
@@ -204,13 +239,13 @@ function delOrder(orderNum) {
             },
             success: function (data) {
                 if (data.code == succCode) {
-                    $('#err-prompt').empty().append(data.message + ' ' + data.data);
+                    $('#err-prompt').empty().append(data.message);
                     orderNumber = data.data;
                     init();
                     $(this).parents('.order-list').addClass('undis');
                 }
                 else {
-                    $('#err-prompt').empty().append('查询失败--/order/delete');
+                    $('#err-prompt').empty().append(data.message);
                 }
             },
             error: function () {
